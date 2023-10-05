@@ -1,9 +1,14 @@
 import "./Home.css";
+import homePageImg from "../../assets/home-page-img.jpg";
 
 function Home() {
   return (
     <div>
-      <h1>This is the home page</h1>
+      <img
+        className="home-page-img"
+        src={homePageImg}
+        alt="Man lifting barbell"
+      />
     </div>
   );
 }
