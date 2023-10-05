@@ -5,10 +5,10 @@
   font-size: 14pt;
   padding: 10px;
   border-radius: 10px;
-  transition: 0.5s;
+  transition: 0.7s;
   cursor: pointer;
 }
 
 .nav-bar-button:hover {
-  background-color: #00a7e1;
+  font-size: 20pt;
 }
