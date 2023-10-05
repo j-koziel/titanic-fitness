@@ -7,12 +7,14 @@ function NavBar() {
     <div className="nav-bar">
       <div className="title-container">
         <img src={logo} alt="Titanic Fitness Logo" />
-        <h1>Titanic Fitness</h1>
+        <a href="/">
+          <h1>Titanic Fitness</h1>
+        </a>
       </div>
       <div className="nav-bar-buttons-container">
-        <NavBarButton buttonText="About" />
-        <NavBarButton buttonText="Locations" />
-        <NavBarButton buttonText="Login" />
+        <NavBarButton buttonText="About" path="about" />
+        <NavBarButton buttonText="Locations" path="locations" />
+        <NavBarButton buttonText="Login" path="login" />
       </div>
     </div>
   );

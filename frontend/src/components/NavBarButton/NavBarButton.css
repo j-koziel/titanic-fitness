@@ -6,6 +6,7 @@
   padding: 10px;
   border-radius: 10px;
   transition: 0.5s;
+  cursor: pointer;
 }
 
 .nav-bar-button:hover {
