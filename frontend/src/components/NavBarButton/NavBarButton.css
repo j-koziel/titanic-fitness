@@ -1,0 +1,13 @@
+.nav-bar-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 14pt;
+  padding: 10px;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+
+.nav-bar-button:hover {
+  background-color: #00a7e1;
+}
