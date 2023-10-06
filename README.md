@@ -4,6 +4,8 @@
 
 # dev log
 
+This is just a development log which I have to make as part of my school project :)
+
 ## Frontend (Version 1) - 1 week
 
 ### Nav Bar
