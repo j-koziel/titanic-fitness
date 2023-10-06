@@ -6,6 +6,14 @@
 
 This is just a development log which I have to make as part of my school project :)
 
+This is the format which I am using
+
+Iteration
+
+Feature
+- tests
+
+
 ## Frontend (Version 1) - 1 week
 
 ### Nav Bar
@@ -16,7 +24,9 @@ This is just a development log which I have to make as part of my school project
 
 ### Pages
 
-- Home Page
+#### Home Page
+- 05/10/2023 - Added the main home page image and resized it to match the design
+    1. Having an issue where the image is a bit too big
 
 
 ## Backend (Version 2) - 1 week
