@@ -8,6 +8,7 @@
   transition: transform 0.3s cubic-bezier(0.55, 0, 0.55, 0.2),
     color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
   cursor: pointer;
+  transform-origin: 50% 30%;
 }
 
 .nav-bar-button:hover {

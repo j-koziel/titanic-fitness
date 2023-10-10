@@ -8,10 +8,11 @@
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
-  transition: 0.5s;
+  transition: transform 0.3s cubic-bezier(0.55, 0, 0.55, 0.2),
+    color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+  transform-origin: 50% 30%;
 }
 
 .button-component:hover {
-  width: 153px;
-  height: 70px;
+  transform: scale(1.3);
 }
