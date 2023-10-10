@@ -26,7 +26,7 @@ Feature
 
 #### Home Page
 - 05/10/2023 - Added the main home page image and resized it to match the design
-    1. Having an issue where the image is a bit too big
+    1. Having an issue where the image is a bit too big.... I think instead of making it fill part of the screen I'll make it just be the background.
 
 
 ## Backend (Version 2) - 1 week
