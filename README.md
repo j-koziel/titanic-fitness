@@ -33,6 +33,7 @@ Feature
   1. Test 1: Having an issue where the image is a bit too big.... I think instead of making it fill part of the screen I'll make it just be the background.
 - 10/10/2023 - Added the boxes for the home page with their respective text. Added animations to the buttons so that they look nicer.
   1. Test: The animation makes the other text move
+  2. Test: Fixed the animations so that only the buttons move
 
 ## Backend (Version 2) - 1 week
 
