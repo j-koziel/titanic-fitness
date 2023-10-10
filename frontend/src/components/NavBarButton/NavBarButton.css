@@ -5,10 +5,11 @@
   font-size: 14pt;
   padding: 10px;
   border-radius: 10px;
-  transition: 0.7s;
+  transition: transform 0.3s cubic-bezier(0.55, 0, 0.55, 0.2),
+    color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
   cursor: pointer;
 }
 
 .nav-bar-button:hover {
-  font-size: 20pt;
+  transform: scale(1.3);
 }
