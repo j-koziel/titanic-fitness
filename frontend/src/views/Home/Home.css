@@ -21,7 +21,7 @@
 }
 
 .information-box {
-  background-color: #00171F;
+  background-color: #00171f;
   color: white;
   width: 340px;
   height: 359px;
@@ -32,13 +32,7 @@
   border-radius: 10px;
 }
 
-.information-box button {
-  border: none;
-  background-color: #00A7E1;
-  width: 133px;
-  height: 50px;
-  margin-bottom: 25px;
-  border-radius: 10px;
-  font-size: 20px;
-  font-weight: bold;
+.information-box p {
+  width: 70%;
+  font-size: 18pt;
 }
