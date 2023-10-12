@@ -35,6 +35,12 @@ Feature
   1. Test: The animation makes the other text move
   2. Test: Fixed the animations so that only the buttons move however the animation is still slightly delayed.
 
+#### Login/Registration Page
+
+- 12/10/2023 - Created the layout of the page and added some styling to mimic the figma design.
+  1. Test 1: When I started making I encountered an issue where React would get confused with all the imports so I had to basically start the page from scratch as this seemed like the only possible solution
+  2. Test 2: After that I managed to make the page with no issues however there has clearly been some kind of structural error with my css as the font for the nav bar buttons no longer loads 
+
 ## Backend (Version 2) - 1 week
 
 ## Backend/frontend integration (Version 3) 1 - week
