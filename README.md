@@ -39,7 +39,7 @@ Feature
 
 - 12/10/2023 - Created the layout of the page and added some styling to mimic the figma design.
   1. Test 1: When I started making I encountered an issue where React would get confused with all the imports so I had to basically start the page from scratch as this seemed like the only possible solution
-  2. Test 2: After that I managed to make the page with no issues however there has clearly been some kind of structural error with my css as the font for the nav bar buttons no longer loads 
+  2. Test 2: After that I managed to make the page with no issues however there has clearly been some kind of structural error with my css as the font for the nav bar buttons no longer loads. Also the registration box isn't actually centered on the page which needs to be addressed
 
 ## Backend (Version 2) - 1 week
 
