@@ -6,7 +6,9 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
 function Profile() {
-  const percentage = 50;
+  const dailyPercentage = 50;
+  const caloriePercentage = 23;
+  const weightPercentage = 74
 
   const progressRingStyles = {
     trailColor: "#00536F",
@@ -18,7 +20,7 @@ function Profile() {
     <div className="profile-page-container">
       <div className="info-history-container">
         <div className="user-info-container">
-          <h1>Welcome back, Jonathan 👋</h1>
+          <h2 className="welcome-message">Welcome back, Jonathan 👋</h2>
           <div className="profile-nav">
             <img src={Avatar} alt="You" className="profile-photo" />
             <ProfileButton buttonText={"SETTINGS"} />
@@ -30,38 +32,132 @@ function Profile() {
             <div className="goals-progress-rings">
               <div className="goals-progress-ring">
                 <CircularProgressbar
-                  value={percentage}
-                  text={`${percentage}%`}
+                  value={dailyPercentage}
+                  text={`${dailyPercentage}%`}
                   styles={buildStyles(progressRingStyles)}
                 />
+                <p>Daily Streak</p>
               </div>
 
               <div className="goals-progress-ring">
                 <CircularProgressbar
-                  value={percentage}
-                  text={`${percentage}%`}
+                  value={caloriePercentage}
+                  text={`${caloriePercentage}%`}
                   styles={buildStyles(progressRingStyles)}
                 />
+                <p>Calories Lost</p>
               </div>
 
               <div className="goals-progress-ring">
                 <CircularProgressbar
-                  value={percentage}
-                  text={`${percentage}%`}
+                  value={weightPercentage}
+                  text={`${weightPercentage}%`}
                   styles={buildStyles(progressRingStyles)}
                 />
+                <p>Weight</p>
               </div>
-            </div>
-            <div className="goals-progress-labels">
-              <p>Goal</p>
-              <p>Goal</p>
-              <p>Goal</p>
             </div>
           </div>
         </div>
-        <div className="history-container"></div>
+        <div className="history-container">
+          <h2>Your History ⌚:</h2>
+          <div className="history-items">
+          <div className="history-item">
+            <div>
+              <p>Weight Training</p>
+              <p>0:30</p>
+            </div>
+            <div>
+              13/10/2023
+            </div>
+          </div>
+          <div className="history-item">
+            <div>
+              <p>Weight Training</p>
+              <p>0:30</p>
+            </div>
+            <div>
+              13/10/2023
+            </div>
+          </div>
+          <div className="history-item">
+            <div>
+              <p>Weight Training</p>
+              <p>0:30</p>
+            </div>
+            <div>
+              13/10/2023
+            </div>
+          </div>
+          <div className="history-item">
+            <div>
+              <p>Weight Training</p>
+              <p>0:30</p>
+            </div>
+            <div>
+              13/10/2023
+            </div>
+          </div>
+          <div className="history-item">
+            <div>
+              <p>Weight Training</p>
+              <p>0:30</p>
+            </div>
+            <div>
+              13/10/2023
+            </div>
+          </div>
+          <div className="history-item">
+            <div>
+              <p>Weight Training</p>
+              <p>0:30</p>
+            </div>
+            <div>
+              13/10/2023
+            </div>
+          </div>
+          <div className="history-item">
+            <div>
+              <p>Weight Training</p>
+              <p>0:30</p>
+            </div>
+            <div>
+              13/10/2023
+            </div>
+          </div>
+          <div className="history-item">
+            <div>
+              <p>Weight Training</p>
+              <p>0:30</p>
+            </div>
+            <div>
+              13/10/2023
+            </div>
+          </div>
+          </div>
+          
+        </div>
       </div>
-      <div className="plans-container"></div>
+      <div className="plans-container">
+        <div className="nutrition-container">
+          <h2>
+            Nutrition
+          </h2>
+          <div className="nutrition-plan">
+            <p>Plan Length: 5 weeks</p>
+            <p>Goal weight: 70kg</p>
+            <h3>Daily Meals: </h3>
+            <div className="meals">
+              <div className="meal"></div>
+            </div>
+          </div>
+        </div>
+        <div className="workouts-container">
+          <h2>
+            Workouts
+          </h2>
+        </div>
+      </div>
     </div>
   );
 }
