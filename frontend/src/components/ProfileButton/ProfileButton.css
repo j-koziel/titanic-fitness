@@ -1,0 +1,23 @@
+.profile-button {
+  width: 150px;
+  height: 100px;
+  flex-shrink: 0;
+  background-color: #00a7e1;
+  color: #00171f;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.55, 0, 0.55, 0.2),
+    color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+  transition: 0.5s;
+  transform-origin: 50% 30%;
+  border-radius: 15px;
+}
+
+.profile-button:hover {
+  transform: scale(1.1);
+}
