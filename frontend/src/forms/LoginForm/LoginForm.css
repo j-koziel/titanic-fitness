@@ -38,7 +38,7 @@ input {
   outline: none;
 }
 
-button {
+.submit-button {
   width: 144px;
   height: 67px;
   border-radius: 10px;
@@ -54,6 +54,6 @@ button {
   transform-origin: 50% 30%;
 }
 
-button:hover {
+.submit-button:hover {
   transform: scale(1.3);
 }

@@ -27,7 +27,9 @@ function LoginForm() {
           />
         </div>
 
-        <button type="submit">Log in</button>
+        <button className="submit-button" type="submit">
+          Log in
+        </button>
       </form>
     </div>
   );
