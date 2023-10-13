@@ -40,6 +40,11 @@ Feature
 - 12/10/2023 - Created the layout of the page and added some styling to mimic the figma design.
   1. Test 1: When I started making I encountered an issue where React would get confused with all the imports so I had to basically start the page from scratch as this seemed like the only possible solution
   2. Test 2: After that I managed to make the page with no issues however there has clearly been some kind of structural error with my css as the font for the nav bar buttons no longer loads. Also the registration box isn't actually centered on the page which needs to be addressed
+ 
+### Profile page
+- 13/10/2023 - Started making the profile page with all the user info, training history and workout/nutrition plans. Some issues I encountered were:
+  1. Test 1: I made the container for the user info and when I created the history container somehow the height of the user container was affected meaning that there were elements overflowing
+  2. Test 2: Fixed the height issue. Now I was trying to create the container with the plans but for some reason it was not appearing. Then I added some content to it and that's when it appeared.
 
 ## Backend (Version 2) - 1 week
 
