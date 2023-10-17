@@ -33,7 +33,7 @@ function Home() {
           <p>
             Log in to your account to get back on track to reaching your goals
           </p>
-          <Button text="Log In" />
+          <Button text="Log In" path="/login" />
         </div>
       </div>
     </div>
