@@ -53,5 +53,7 @@ Feature
 
 
 ## Backend (Version 2) - 1 week
+- 17/10/2023 - Started making the backend. Made the mock db and created a route which gets all the users from the mock db
+
 
 ## Backend/frontend integration (Version 3) 1 - week
