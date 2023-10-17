@@ -41,7 +41,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 20px;
+  width: 100%;
+  margin: 15px 50px;
 }
 
 .settings-main form {

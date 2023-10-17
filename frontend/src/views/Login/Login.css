@@ -6,7 +6,8 @@
 
 .auth-container {
   width: 568px;
-  height: 686px;
+  height: 90vh;
+  margin: 20px;
   border-radius: 10px;
   background: #00171f;
 
@@ -15,4 +16,20 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.register {
+  height: 140vh;
+}
+
+.form-header span {
+  cursor: pointer;
+  text-decoration: underline 0.1em rgba(0, 0, 0, 0);
+  transition: text-decoration-color 300ms;
+  transition: 0.3s;
+}
+
+.form-header span:hover {
+  color: #00a7e1;
+  text-decoration-color: #00a7e1;
 }

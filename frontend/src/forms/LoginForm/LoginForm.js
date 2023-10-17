@@ -1,12 +1,14 @@
 import "./LoginForm.css";
 
-function LoginForm() {
+function LoginForm({ formChange }) {
   return (
     <div className="auth-container">
       <form className="login-form">
         <div className="form-header">
           <h2>Login</h2>
-          <p>Don't have an account? Register</p>
+          <p>
+            Don't have an account? <span onClick={formChange}>Register</span>
+          </p>
         </div>
         <div className="input">
           <label htmlFor="username-input">Username</label>
