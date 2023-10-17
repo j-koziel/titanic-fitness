@@ -47,7 +47,7 @@ Feature
 - 13/10/2023 - Started making the profile page with all the user info, training history and workout/nutrition plans. Some issues I encountered were:
   1. Test 1: I made the container for the user info and when I created the history container somehow the height of the user container was affected meaning that there were elements overflowing
   2. Test 2: Fixed the height issue. Now I was trying to create the container with the plans but for some reason it was not appearing. Then I added some content to it and that's when it appeared. Another issue that I had encountered was that the page width was behaving unusually. It was slightly smaller than the width of the screen on the home page but the profile page is fine... however when I switch to a smaller screen the profile page is also affected.
-- 16/10/2023 - Completed making the workout/eating plans layout
+- 16/10/2023 - Completed making the workout/eating plans layout. I basically made the meals a list of items containing the meal type, meal title and other info. Later these will be clickable so that a modal appears and lets you edit the plans.
   1. Test 1: Everything works as it should. I managed to fix the issue with the width... turns out I had an invisible scrollbar in my css which was creating the gap.
  ![image](https://github.com/j-koziel/titanic-fitness/assets/68497216/d8a7f24e-3e6c-4a23-9053-08e4832be6f7)
 
