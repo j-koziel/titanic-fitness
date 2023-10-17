@@ -26,14 +26,14 @@ function Home() {
             Our subscription service will provide you with <em>all</em> that you
             need to <strong>attain</strong> your fitness goals.
           </p>
-          <Button text="Register" />
+          <Button text="Register" path="/login?formState=register" />
         </div>
         <div className="information-box">
           <h2>Log In</h2>
           <p>
             Log in to your account to get back on track to reaching your goals
           </p>
-          <Button text="Log In" path="/login" />
+          <Button text="Log In" path="/login?formState=login" />
         </div>
       </div>
     </div>
