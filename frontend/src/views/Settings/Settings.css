@@ -39,17 +39,88 @@
 
 .settings-main {
   display: flex;
-  flex-direction: column;
-  margin: 10px;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 20px;
 }
 
 .settings-main form {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 70px;
 }
 
 .settings-input {
   display: flex;
   flex-direction: column;
+}
+
+.account-details-form button {
+  width: 100%;
+  height: 60px;
+  font-size: 26px;
+  font-weight: 700;
+  border-radius: 10px;
+  background-color: #00a7e1;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.55, 0, 0.55, 0.2),
+    color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+  transition: 0.5s;
+  transform-origin: 50% 30%;
+}
+
+.account-details-form button:hover {
+  transform: scale(1.05);
+}
+
+.profile-pic-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.profile-pic-container img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+}
+
+.change-avatar-btn {
+  width: 211px;
+  height: 71px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  border: 2px solid #00a7e1;
+  background: rgba(217, 217, 217, 0);
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.55, 0, 0.55, 0.2),
+    color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+  transition: 0.5s;
+  transform-origin: 50% 30%;
+  color: #fff;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.del-avatar-btn {
+  width: 211px;
+  height: 71px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  border: 2px solid #c23535;
+  color: #c23535;
+  background: rgba(194, 53, 53, 0);
+  font-size: 26px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.55, 0, 0.55, 0.2),
+    color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+  transition: 0.5s;
+  transform-origin: 50% 30%;
+}
+
+.change-avatar-btn:hover,
+.del-avatar-btn:hover {
+  transform: scale(1.05);
 }
