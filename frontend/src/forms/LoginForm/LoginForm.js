@@ -15,6 +15,7 @@ function LoginForm() {
             placeholder="Username"
             id="username-input"
             required
+            autoFocus
           />
         </div>
         <div className="input">
