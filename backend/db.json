@@ -1,0 +1,107 @@
+[
+  {
+    "first_name": "Olivia",
+    "last_name": "Anderson",
+    "full_name": "Olivia Anderson",
+    "username": "olivia_a",
+    "password": "strongpass#9",
+    "dob": "1998-07-18T00:00:00",
+    "age": 25,
+    "userType": "premium",
+    "eatingPlan": ["keto", "high_fiber"],
+    "workoutPlans": ["crossfit", "HIIT"],
+    "goals": ["challenge_limits", "fat_loss"],
+    "history": ["2017-crossfit_competition", "2019-HIIT_challenge"],
+    "weight": 60.5,
+    "height": 167.8,
+    "preferredGym": {
+      "staff": ["Zen Fitness Center"],
+      "location": "456 Oak Avenue, Townsville",
+      "users": ["test user"]
+    }
+  },
+  {
+    "first_name": "Charlie",
+    "last_name": "Brown",
+    "full_name": "Charlie Brown",
+    "username": "charlie_b",
+    "password": "brownie@567",
+    "dob": "1995-04-03T00:00:00",
+    "age": 28,
+    "userType": "regular",
+    "eatingPlan": ["vegan", "gluten-free"],
+    "workoutPlans": ["cycling", "bodyweight_exercises"],
+    "goals": ["environment_friendly_fitness", "stay_fit"],
+    "history": ["2012-cycling_tour", "2016-bodyweight_challenge"],
+    "weight": 68.0,
+    "height": 178.2,
+    "preferredGym": {
+      "staff": ["Zen Fitness Center"],
+      "location": "456 Oak Avenue, Townsville",
+      "users": ["test user"]
+    }
+  },
+  {
+    "first_name": "Eva",
+    "last_name": "Williams",
+    "full_name": "Eva Williams",
+    "username": "evaw",
+    "password": "evapass!23",
+    "dob": "1988-12-10T00:00:00",
+    "age": 34,
+    "userType": "premium",
+    "eatingPlan": ["pescatarian", "organic"],
+    "workoutPlans": ["swimming", "weight_training"],
+    "goals": ["build_muscle", "maintain_health"],
+    "history": ["2013-swim_competition", "2017-weightlifting_champion"],
+    "weight": 63.5,
+    "height": 170.3,
+    "preferredGym": {
+      "staff": ["Zen Fitness Center"],
+      "location": "456 Oak Avenue, Townsville",
+      "users": ["test user"]
+    }
+  },
+  {
+    "first_name": "Bob",
+    "last_name": "Johnson",
+    "full_name": "Bob Johnson",
+    "username": "bobj",
+    "password": "securepass123",
+    "dob": "1992-09-22T00:00:00",
+    "age": 31,
+    "userType": "regular",
+    "eatingPlan": ["high-carb", "low-fat"],
+    "workoutPlans": ["running", "circuit_training"],
+    "goals": ["improve_endurance", "lose_weight"],
+    "history": ["2018-marathon", "2020-circuit_challenge"],
+    "weight": 80.2,
+    "height": 185.0,
+    "preferredGym": {
+      "staff": ["Zen Fitness Center"],
+      "location": "456 Oak Avenue, Townsville",
+      "users": ["test user"]
+    }
+  },
+  {
+    "first_name": "Alice",
+    "last_name": "Smith",
+    "full_name": "Alice Smith",
+    "username": "alice123",
+    "password": "myp@ssword",
+    "dob": "1985-05-15T00:00:00",
+    "age": 38,
+    "userType": "premium",
+    "eatingPlan": ["balanced", "vegetarian"],
+    "workoutPlans": ["yoga", "pilates"],
+    "goals": ["stress_relief", "flexibility"],
+    "history": ["2010-yoga_retreat", "2015-pilates_certification"],
+    "weight": 55.8,
+    "height": 162.5,
+    "preferredGym": {
+      "staff": ["Zen Fitness Center"],
+      "location": "456 Oak Avenue, Townsville",
+      "users": ["test user"]
+    }
+  }
+]
