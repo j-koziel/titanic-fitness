@@ -1,9 +1,32 @@
 import "./Profile.css";
 import ProfileButton from "../../components/ProfileButton/ProfileButton";
 import Avatar from "../../assets/avatar.jpg";
+import Modal from "react-modal";
 
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import { useState } from "react";
+
+const modalStyles = {
+  overlay: {
+    backdropFilter: "blur(5px)",
+    backgroundColor: "none",
+  },
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    backgroundColor: "#003459",
+    border: "none",
+    borderRadius: "15px",
+    height: "400px",
+    width: "500px",
+    boxShadow: "20px 20px 100px",
+  },
+};
 
 function Profile() {
   const dailyPercentage = 50;
@@ -15,6 +38,15 @@ function Profile() {
     pathColor: "#00A7E1",
     textColor: "#FFF",
   };
+
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   return (
     <div className="profile-page-container">
@@ -45,7 +77,7 @@ function Profile() {
                   text={`${caloriePercentage}%`}
                   styles={buildStyles(progressRingStyles)}
                 />
-                <p>Calories Lost</p>
+                <p>Calories Burnt</p>
               </div>
 
               <div className="goals-progress-ring">
@@ -151,11 +183,31 @@ function Profile() {
             <p>Plan difficulty: Easy</p>
             <h3>Routines:</h3>
             <div className="workouts">
-              <div className="workout">
+              <div className="workout" onClick={() => openModal()}>
                 <p className="workout-muscle-group">chest</p>
                 <p className="workout-title">push ups</p>
                 <p className="workout-reps">Reps: 10</p>
               </div>
+              <Modal
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+                contentLabel="Example Modal"
+                style={modalStyles}
+                closeTimeoutMS={1000}
+              >
+                <p>Chest</p>
+                <p>Push ups</p>
+                <p>Reps: 10</p>
+                <p>
+                  Instructions: With your legs extended back, place the hands
+                  below the shoulders, slightly wider than shoulder-width apart.
+                  Start bending your elbows and lower your chest until it's just
+                  above the floor. Push back to the starting position. A
+                  1-second push, 1-second pause, 2-second down count is ideal.
+                  Repeat.
+                </p>
+                <p>Difficulty: easy</p>
+              </Modal>
             </div>
           </div>
         </div>
