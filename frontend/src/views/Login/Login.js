@@ -15,7 +15,9 @@ function Login() {
     if (paramFormState && paramFormState !== formState) {
       setFormState(paramFormState);
     }
-  }, [searchParams, formState, setSearchParams]);
+
+    window.scrollTo(0, 0);
+  }, [searchParams, formState]);
 
   function changeForm() {
     const paramFormState = searchParams.get("formState");
