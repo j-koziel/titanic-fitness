@@ -44,6 +44,10 @@ Feature
   1. Test 1: The query param doesn't change when i click login/register on the actual form
 ![image](https://github.com/j-koziel/titanic-fitness/assets/68497216/a9459f7c-0aff-49cd-bf3e-f6757176b0b7)
 
+- 19/10/2023 - Created an Error component which displays if the user enters their details and there is an error in the backend.
+  ![image](https://github.com/j-koziel/titanic-fitness/assets/68497216/8d84fb63-485f-4969-aff1-c0e0937d19ed)
+
+
  
 ### Profile page
 - 13/10/2023 - Started making the profile page with all the user info, training history and workout/nutrition plans. Some issues I encountered were:
