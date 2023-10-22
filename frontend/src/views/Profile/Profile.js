@@ -24,7 +24,7 @@ const modalStyles = {
     borderRadius: "15px",
     height: "400px",
     width: "500px",
-    boxShadow: "20px 20px 100px",
+    boxShadow: "20px 20px 150px",
   },
 };
 
@@ -193,7 +193,7 @@ function Profile() {
                 onRequestClose={closeModal}
                 contentLabel="Example Modal"
                 style={modalStyles}
-                closeTimeoutMS={1000}
+                closeTimeoutMS={700}
               >
                 <p>Chest</p>
                 <p>Push ups</p>
