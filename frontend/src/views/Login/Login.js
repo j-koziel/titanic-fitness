@@ -7,6 +7,7 @@ import { useSearchParams } from "react-router-dom";
 function Login() {
   const [formState, setFormState] = useState("login");
   const [searchParams, setSearchParams] = useSearchParams();
+  console.log(setSearchParams);
 
   useEffect(() => {
     const paramFormState = searchParams.get("formState");
