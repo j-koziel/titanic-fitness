@@ -1,5 +1,9 @@
 import "./Home.css";
 import homePageImg from "../../assets/home-page-img.jpg";
+import YoutubeLogo from "../../assets/youtube_social_icon_red.png";
+import InstagramLogo from "../../assets/Instagram_Glyph_Gradient.png";
+import FacebookLogo from "../../assets/Facebook_Logo_Primary.png";
+import SnapchatLogo from "../../assets/Snapchat App Icon.png";
 import Button from "../../components/Button/Button";
 
 function Home() {
@@ -34,6 +38,35 @@ function Home() {
             Log in to your account to get back on track to reaching your goals
           </p>
           <Button text="Log In" path="/login?formState=login" />
+        </div>
+      </div>
+      <div className="social-media-container">
+        <h1 className="socials-header">Our Socials</h1>
+        <div className="logos-container">
+          <img className="youtube" src={YoutubeLogo} alt="Youtube Logo" />
+
+          <img
+            className="instagram"
+            src={InstagramLogo}
+            alt="Instagram Logo"
+            height="100px"
+            width="100px"
+          />
+
+          <img
+            className="facebook"
+            src={FacebookLogo}
+            alt="Facebook logo"
+            height="100px"
+            width="100px"
+          />
+          <img
+            className="snapchat"
+            src={SnapchatLogo}
+            alt="Snapchat logo"
+            height="100px"
+            width="100px"
+          />
         </div>
       </div>
     </div>

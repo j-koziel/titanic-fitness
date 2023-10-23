@@ -15,6 +15,7 @@
 .information-boxes-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 100px;
   position: absolute;
   top: 600px;
@@ -35,4 +36,41 @@
 .information-box p {
   width: 70%;
   font-size: 18pt;
+}
+
+.social-media-container {
+  background-color: #00171f;
+  color: #fff;
+  margin: 100px;
+  width: 98%;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 15px;
+  box-shadow: 10px 10px 30px #000;
+}
+
+.social-media-container img {
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.55, 0, 0.55, 0.2),
+    color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-filter 0.3s,
+    filter 0.3s;
+  transition: 0.5s;
+  transform-origin: 50% 30%;
+}
+
+.social-media-container img:hover {
+  transform: scale(1.1);
+  -webkit-filter: drop-shadow(10px 10px 20px #000000);
+  filter: drop-shadow(10px 10px 20px #000000);
+}
+
+.logos-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
