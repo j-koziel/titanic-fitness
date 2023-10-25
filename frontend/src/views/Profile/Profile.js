@@ -19,12 +19,18 @@ const modalStyles = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
-    backgroundColor: "#003459",
+    backgroundColor: "#00171f",
+    color: "#fff",
     border: "none",
     borderRadius: "15px",
     height: "400px",
-    width: "500px",
-    boxShadow: "20px 20px 150px",
+    width: "70%",
+    boxShadow: "20px 20px 150px #000",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "200px",
   },
 };
 
@@ -184,8 +190,8 @@ function Profile() {
             <h3>Routines:</h3>
             <div className="workouts">
               <div className="workout" onClick={() => openModal()}>
-                <p className="workout-muscle-group">chest</p>
                 <p className="workout-title">push ups</p>
+                <p className="workout-muscle-group">chest</p>
                 <p className="workout-reps">Reps: 10</p>
               </div>
               <Modal
@@ -195,18 +201,32 @@ function Profile() {
                 style={modalStyles}
                 closeTimeoutMS={700}
               >
-                <p>Chest</p>
-                <p>Push ups</p>
-                <p>Reps: 10</p>
-                <p>
-                  Instructions: With your legs extended back, place the hands
-                  below the shoulders, slightly wider than shoulder-width apart.
-                  Start bending your elbows and lower your chest until it's just
-                  above the floor. Push back to the starting position. A
-                  1-second push, 1-second pause, 2-second down count is ideal.
-                  Repeat.
-                </p>
-                <p>Difficulty: easy</p>
+                <div className="workout-info">
+                  <h2>Chest</h2>
+                  <h3>Push ups</h3>
+                  <p>Reps: 10</p>
+                  <p className="workout-instructions">
+                    With your legs extended back, place the hands below the
+                    shoulders, slightly wider than shoulder-width apart. Start
+                    bending your elbows and lower your chest until it's just
+                    above the floor. Push back to the starting position. A
+                    1-second push, 1-second pause, 2-second down count is ideal.
+                    Repeat.
+                  </p>
+                  <p>Difficulty: easy</p>
+                </div>
+                <div className="workout-vid">
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/IODxDxX7oi4?si=DZd6z3-fAC_5aXsW"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    style={{ borderRadius: "15px" }}
+                  ></iframe>
+                </div>
               </Modal>
             </div>
           </div>
