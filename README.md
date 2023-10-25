@@ -34,6 +34,7 @@ Feature
 - 10/10/2023 - Added the boxes for the home page with their respective text. Added animations to the buttons so that they look nicer.
   1. Test: The animation makes the other text move
   2. Test: Fixed the animations so that only the buttons move however the animation is still slightly delayed.
+- 23/10/2023 - Added a socials section to the home page.
 
 #### Login/Registration Page
 
