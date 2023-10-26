@@ -32,13 +32,17 @@
 .profile-nav {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin: 0px 18px;
 }
 
 .profile-photo {
-  height: 100px;
+  min-height: 100px;
+  min-width: 100px;
   width: 100px;
+  height: 100px;
+
   border-radius: 50%;
 }
 
@@ -59,6 +63,7 @@
 .goals-progress-rings {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin: 0px 50px;
 }
@@ -90,11 +95,11 @@
   color: #fff;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .history-container h2 {
-  margin-left: 18px;
+  margin-left: 30px;
 }
 
 .history-items {
@@ -106,7 +111,7 @@
 }
 
 .history-items::-webkit-scrollbar {
-  width: 10px;
+  width: 0.1px;
 }
 
 .history-item {
@@ -138,6 +143,7 @@
 
 .plans-container {
   margin-top: 30px;
+  margin-bottom: 30px;
   width: 96.2%;
   border-radius: 15px;
   background-color: #00171f;
@@ -145,6 +151,29 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+}
+
+.nutrition-plan {
+  margin-bottom: 7px;
+}
+
+.add-meal-btn {
+  background-color: #00536f;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 12pt;
+  font-weight: bold;
+  transition: transform 0.3s cubic-bezier(0.55, 0, 0.55, 0.2),
+    color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+  transition: 0.5s;
+  transform-origin: 50% 30%;
+}
+
+.add-meal-btn:hover {
+  transform: scale(1.1);
 }
 
 .meals {
@@ -176,6 +205,25 @@
 
 .meal:hover {
   transform: scale(1.03);
+}
+
+.add-workout-btn {
+  background-color: #00536f;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 12pt;
+  font-weight: bold;
+  transition: transform 0.3s cubic-bezier(0.55, 0, 0.55, 0.2),
+    color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+  transition: 0.5s;
+  transform-origin: 50% 30%;
+}
+
+.add-workout-btn:hover {
+  transform: scale(1.1);
 }
 
 .workouts {
@@ -231,4 +279,14 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+
+.add-new-meal-form input {
+  background-color: #00171f;
+  color: #fff;
+  text-align: center;
+}
+
+.add-new-meal-form input::placeholder {
+  color: #fff;
 }

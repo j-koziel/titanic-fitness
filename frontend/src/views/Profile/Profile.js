@@ -45,13 +45,16 @@ function Profile() {
     textColor: "#FFF",
   };
 
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [workoutModalIsOpen, setWorkoutModalIsOpen] = useState(false);
+  const [addWorkoutModalIsOpen, setAddWorkoutModalIsOpen] = useState(false);
+  const [addMealModalIsOpen, setAddMealModalIsOpen] = useState(false);
+  const [progressModalIsOpen, setProgressModalIsOpen] = useState(false);
 
-  function openModal() {
-    setIsOpen(true);
+  function openModal(setModalStateFn) {
+    setModalStateFn(true);
   }
-  function closeModal() {
-    setIsOpen(false);
+  function closeModal(setModalStateFn) {
+    setModalStateFn(false);
   }
 
   return (
@@ -61,9 +64,9 @@ function Profile() {
           <h2 className="welcome-message">Welcome back, Jonathan 👋</h2>
           <div className="profile-nav">
             <img src={Avatar} alt="You" className="profile-photo" />
-            <ProfileButton buttonText={"SETTINGS"} />
-            <ProfileButton buttonText={"SUBSCRIPTION"} />
-            <ProfileButton buttonText={"SHARE"} />
+            <ProfileButton buttonText="SETTINGS" />
+            <ProfileButton buttonText="SUBSCRIPTION" />
+            <ProfileButton buttonText="SHARE" />
           </div>
           <h2>Your Goals 📈:</h2>
           <div className="goals-progress-container">
@@ -165,6 +168,32 @@ function Profile() {
           <div className="nutrition-plan">
             <p>Plan Length: 5 weeks</p>
             <p>Goal weight: 70kg</p>
+            <button
+              className="add-meal-btn"
+              onClick={() => openModal(setAddMealModalIsOpen)}
+            >
+              ADD A MEAL
+            </button>
+            <Modal
+              isOpen={addMealModalIsOpen}
+              onRequestClose={() => closeModal(setAddMealModalIsOpen)}
+              contentLabel="Example Modal"
+              style={modalStyles}
+              closeTimeoutMS={700}
+            >
+              <div className="add-new-meal">
+                <form
+                  className="add-new-meal-form"
+                  onSubmit={(e) => e.preventDefault()}
+                >
+                  <input
+                    type="text"
+                    placeholder="Search for a meal..."
+                    required
+                  />
+                </form>
+              </div>
+            </Modal>
             <h3>Daily Meals: </h3>
             <div className="meals">
               <div className="meal">
@@ -187,16 +216,20 @@ function Profile() {
           <div className="workout-plan">
             <p>Plan length: 5 weeks</p>
             <p>Plan difficulty: Easy</p>
+            <button className="add-workout-btn">ADD A WORKOUT</button>
             <h3>Routines:</h3>
             <div className="workouts">
-              <div className="workout" onClick={() => openModal()}>
+              <div
+                className="workout"
+                onClick={() => openModal(setWorkoutModalIsOpen)}
+              >
                 <p className="workout-title">push ups</p>
                 <p className="workout-muscle-group">chest</p>
                 <p className="workout-reps">Reps: 10</p>
               </div>
               <Modal
-                isOpen={modalIsOpen}
-                onRequestClose={closeModal}
+                isOpen={workoutModalIsOpen}
+                onRequestClose={() => closeModal(setWorkoutModalIsOpen)}
                 contentLabel="Example Modal"
                 style={modalStyles}
                 closeTimeoutMS={700}
