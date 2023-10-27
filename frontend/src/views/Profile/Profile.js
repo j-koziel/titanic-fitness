@@ -6,6 +6,7 @@ import Modal from "react-modal";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { useState } from "react";
+import axios from "axios";
 
 const modalStyles = {
   overlay: {
@@ -49,6 +50,8 @@ function Profile() {
   const [addWorkoutModalIsOpen, setAddWorkoutModalIsOpen] = useState(false);
   const [addMealModalIsOpen, setAddMealModalIsOpen] = useState(false);
   const [progressModalIsOpen, setProgressModalIsOpen] = useState(false);
+  const [workoutsQuery, setWorkoutsQuery] = useState("");
+  const [workoutsData, setWorkoutsData] = useState([]);
 
   function openModal(setModalStateFn) {
     setModalStateFn(true);
@@ -190,6 +193,7 @@ function Profile() {
                     type="text"
                     placeholder="Search for a meal..."
                     required
+                    autoFocus
                   />
                 </form>
               </div>
@@ -216,7 +220,68 @@ function Profile() {
           <div className="workout-plan">
             <p>Plan length: 5 weeks</p>
             <p>Plan difficulty: Easy</p>
-            <button className="add-workout-btn">ADD A WORKOUT</button>
+            <button
+              className="add-workout-btn"
+              onClick={() => openModal(setAddWorkoutModalIsOpen)}
+            >
+              ADD A WORKOUT
+            </button>
+            <Modal
+              isOpen={addWorkoutModalIsOpen}
+              onRequestClose={() => closeModal(setAddWorkoutModalIsOpen)}
+              contentLabel="Example Modal"
+              style={modalStyles}
+              closeTimeoutMS={700}
+            >
+              <div className="add-new-workout">
+                <form
+                  className="add-new-workout-form"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    const data = axios
+                      .get(
+                        "https://api.api-ninjas.com/v1/exercises?name=" +
+                          workoutsQuery,
+                        {
+                          headers: {
+                            "X-Api-Key":
+                              "dyG+UTdtC4vwLIztaDApJw==FnIgOIOqPAWVfOWz",
+                          },
+                        }
+                      )
+                      .then((res) => setWorkoutsData([...res.data]))
+                      .catch((err) => console.error(err));
+                    setWorkoutsQuery("");
+                  }}
+                >
+                  <input
+                    type="text"
+                    placeholder="Search for a workout..."
+                    value={workoutsQuery}
+                    onChange={(e) => setWorkoutsQuery(e.target.value)}
+                    required
+                    autoFocus
+                  />
+                </form>
+                <div className="workouts-data">
+                  {workoutsData.length
+                    ? workoutsData.map((exercise) => (
+                        <div>
+                          <div className="workout">
+                            <p className="workout-title">{exercise.name}</p>
+                            <p className="workout-muscle-group">
+                              {exercise.muscle}
+                            </p>
+                            <p className="workout-reps">
+                              {exercise.difficulty}
+                            </p>
+                          </div>
+                        </div>
+                      ))
+                    : null}
+                </div>
+              </div>
+            </Modal>
             <h3>Routines:</h3>
             <div className="workouts">
               <div
