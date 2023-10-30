@@ -2,11 +2,11 @@ import "./Profile.css";
 import ProfileButton from "../../components/ProfileButton/ProfileButton";
 import Avatar from "../../assets/avatar.jpg";
 import Modal from "react-modal";
-
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { useState } from "react";
 import axios from "axios";
+import Error from "../../components/Error/Error";
 
 const modalStyles = {
   overlay: {
@@ -49,9 +49,10 @@ function Profile() {
   const [workoutModalIsOpen, setWorkoutModalIsOpen] = useState(false);
   const [addWorkoutModalIsOpen, setAddWorkoutModalIsOpen] = useState(false);
   const [addMealModalIsOpen, setAddMealModalIsOpen] = useState(false);
-  const [progressModalIsOpen, setProgressModalIsOpen] = useState(false);
+  // const [progressModalIsOpen, setProgressModalIsOpen] = useState(false);
   const [workoutsQuery, setWorkoutsQuery] = useState("");
   const [workoutsData, setWorkoutsData] = useState([]);
+  const [isWorkoutFormSubmitted, setIsWorkoutFormSubmitted] = useState(false);
 
   function openModal(setModalStateFn) {
     setModalStateFn(true);
@@ -238,20 +239,20 @@ function Profile() {
                   className="add-new-workout-form"
                   onSubmit={(e) => {
                     e.preventDefault();
-                    const data = axios
+                    axios
                       .get(
                         "https://api.api-ninjas.com/v1/exercises?name=" +
                           workoutsQuery,
                         {
                           headers: {
-                            "X-Api-Key":
-                              "dyG+UTdtC4vwLIztaDApJw==FnIgOIOqPAWVfOWz",
+                            "X-Api-Key": process.env.REACT_APP_API_NINJAS_KEY,
                           },
                         }
                       )
                       .then((res) => setWorkoutsData([...res.data]))
                       .catch((err) => console.error(err));
                     setWorkoutsQuery("");
+                    setIsWorkoutFormSubmitted(true);
                   }}
                 >
                   <input
@@ -263,9 +264,10 @@ function Profile() {
                     autoFocus
                   />
                 </form>
-                <div className="workouts-data">
-                  {workoutsData.length
-                    ? workoutsData.map((exercise) => (
+                {isWorkoutFormSubmitted ? (
+                  <div className="workouts-data">
+                    {workoutsData.length ? (
+                      workoutsData.map((exercise) => (
                         <div>
                           <div className="workout">
                             <p className="workout-title">{exercise.name}</p>
@@ -278,8 +280,11 @@ function Profile() {
                           </div>
                         </div>
                       ))
-                    : null}
-                </div>
+                    ) : (
+                      <Error message="No workouts found" />
+                    )}
+                  </div>
+                ) : null}
               </div>
             </Modal>
             <h3>Routines:</h3>

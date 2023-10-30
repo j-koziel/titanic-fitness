@@ -24,3 +24,4 @@ yarn-error.log*
 
 favicon.ico:Zone.Identifier
 .env
+config.js
