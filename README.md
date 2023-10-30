@@ -56,6 +56,7 @@ Feature
   2. Test 2: Fixed the height issue. Now I was trying to create the container with the plans but for some reason it was not appearing. Then I added some content to it and that's when it appeared. Another issue that I had encountered was that the page width was behaving unusually. It was slightly smaller than the width of the screen on the home page but the profile page is fine... however when I switch to a smaller screen the profile page is also affected.
 - 16/10/2023 - Completed making the workout/eating plans layout. I basically made the meals a list of items containing the meal type, meal title and other info. Later these will be clickable so that a modal appears and lets you edit the plans.
   1. Test 1: Everything works as it should. I managed to fix the issue with the width... turns out I had an invisible scrollbar in my css which was creating the gap.
+- 19/10/2023 - Create workout modal and improve styling of workouts/meals section
 - 25/10/2023 - Added video to workout modal
 - 26/10/2023 - Added meal modal
 - 27/10/2023 - Added functionality to get exercises from the API ninjas, exercises api.
