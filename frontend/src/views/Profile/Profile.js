@@ -8,6 +8,7 @@ import { useState } from "react";
 import axios from "axios";
 import Error from "../../components/Error/Error";
 import WorkoutItem from "../../components/WorkoutItem/WorkoutItem";
+import WorkoutInfo from "../../components/WorkoutInfo/WorkoutInfo";
 import ProgressBar from "@ramonak/react-progress-bar";
 
 const modalStyles = {
@@ -51,6 +52,7 @@ function Profile() {
   const [workoutModalIsOpen, setWorkoutModalIsOpen] = useState(false);
   const [addWorkoutModalIsOpen, setAddWorkoutModalIsOpen] = useState(false);
   const [addMealModalIsOpen, setAddMealModalIsOpen] = useState(false);
+  const [workoutInfoModalIsOpen, setWorkoutInfoModalIsOpen] = useState(false);
   // const [progressModalIsOpen, setProgressModalIsOpen] = useState(false);
   const [workoutsQuery, setWorkoutsQuery] = useState("");
   const [workoutsData, setWorkoutsData] = useState([]);
@@ -287,14 +289,18 @@ function Profile() {
                   />
                 </form>
                 {isWorkoutFormSubmitted ? (
-                  <div className="workouts-data">
-                    {!isLoading && workoutsData.length ? (
-                      workoutsData.map((exercise) => (
-                        <WorkoutItem exercise={exercise} />
-                      ))
-                    ) : (
-                      <ProgressBar completed={progress} width="60%" />
-                    )}
+                  <div>
+                    <div className="workouts-data">
+                      {!isLoading && workoutsData.length
+                        ? workoutsData.map((exercise, i) => (
+                            <WorkoutInfo
+                              exercise={exercise}
+                              i={i}
+                              closeModal={closeModal}
+                            />
+                          ))
+                        : null}
+                    </div>
                   </div>
                 ) : null}
               </div>
@@ -350,5 +356,52 @@ function Profile() {
     </div>
   );
 }
+
+//   const [
+//     workoutInfoModalIsOpen,
+//     setWorkoutInfoModalIsOpen,
+//   ] = useState(false);
+
+//   return (
+//     <div key={i}>
+//       <WorkoutItem
+//         exercise={exercise}
+//         openInfoModal={setWorkoutInfoModalIsOpen}
+//       />
+//       <Modal
+//         isOpen={workoutInfoModalIsOpen}
+//         onRequestClose={() => {
+//           closeModal(setWorkoutInfoModalIsOpen);
+//         }}
+//         contentLabel="Workouts Info Modal"
+//         style={modalStyles}
+//         closeTimeoutMS={700}
+//       >
+//         <div className="workout-info">
+//           <h2>{exercise.name}</h2>
+//           <h3>{exercise.muscle}</h3>
+//           <p>Reps: 10</p>
+//           <p className="workout-instructions">
+//             {exercise.instructions}
+//           </p>
+//           <p>Difficulty: {exercise.difficulty}</p>
+//           <button>ADD</button>
+//         </div>
+//         <div className="workout-vid">
+//           <iframe
+//             width="560"
+//             height="315"
+//             src="https://www.youtube.com/embed/IODxDxX7oi4?si=DZd6z3-fAC_5aXsW"
+//             title="YouTube video player"
+//             frameborder="0"
+//             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+//             allowfullscreen
+//             style={{ borderRadius: "15px" }}
+//           ></iframe>
+//         </div>
+//       </Modal>
+//     </div>
+//   );
+// })
 
 export default Profile;
