@@ -273,7 +273,7 @@ function Profile() {
                         if (res.data.length) {
                           setWorkoutsData([...res.data]);
                         } else {
-                          setError("No workouts found");
+                          setError({ message: "No workouts found" });
                         }
                       })
                       .catch((err) => setError(err))
@@ -312,7 +312,7 @@ function Profile() {
                         />
                       ))
                     ) : error ? (
-                      <Error message={error} />
+                      <Error message={error.message} />
                     ) : null}
                   </div>
                 )}
