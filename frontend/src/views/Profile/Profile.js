@@ -271,7 +271,6 @@ function Profile() {
                       })
                       .catch((err) => console.error(err))
                       .finally(() => {
-                        setProgress(0);
                         setIsLoading(false);
                       });
                     setWorkoutsQuery("");
