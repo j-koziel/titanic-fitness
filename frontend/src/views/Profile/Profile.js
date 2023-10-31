@@ -7,7 +7,6 @@ import "react-circular-progressbar/dist/styles.css";
 import { useState } from "react";
 import axios from "axios";
 import Error from "../../components/Error/Error";
-import { useNavigate } from "react-router-dom";
 
 const modalStyles = {
   overlay: {
