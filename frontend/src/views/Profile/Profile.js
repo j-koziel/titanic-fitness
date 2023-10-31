@@ -7,6 +7,7 @@ import "react-circular-progressbar/dist/styles.css";
 import { useState } from "react";
 import axios from "axios";
 import Error from "../../components/Error/Error";
+import { useNavigate } from "react-router-dom";
 
 const modalStyles = {
   overlay: {
@@ -68,7 +69,10 @@ function Profile() {
           <h2 className="welcome-message">Welcome back, Jonathan 👋</h2>
           <div className="profile-nav">
             <img src={Avatar} alt="You" className="profile-photo" />
-            <ProfileButton buttonText="SETTINGS" />
+            <ProfileButton
+              buttonText="SETTINGS"
+              navigateTo="/profile/settings"
+            />
             <ProfileButton buttonText="SUBSCRIPTION" />
             <ProfileButton buttonText="SHARE" />
           </div>
