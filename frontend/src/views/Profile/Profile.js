@@ -7,9 +7,8 @@ import "react-circular-progressbar/dist/styles.css";
 import { useState } from "react";
 import axios from "axios";
 import Error from "../../components/Error/Error";
-import WorkoutItem from "../../components/WorkoutItem/WorkoutItem";
 import WorkoutInfo from "../../components/WorkoutInfo/WorkoutInfo";
-import ProgressBar from "@ramonak/react-progress-bar";
+import RingLoader from "react-spinners/RingLoader";
 
 const modalStyles = {
   overlay: {
@@ -49,16 +48,20 @@ function Profile() {
     textColor: "#FFF",
   };
 
+  const override = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "#00a7e1",
+  };
+
   const [workoutModalIsOpen, setWorkoutModalIsOpen] = useState(false);
   const [addWorkoutModalIsOpen, setAddWorkoutModalIsOpen] = useState(false);
   const [addMealModalIsOpen, setAddMealModalIsOpen] = useState(false);
-  const [workoutInfoModalIsOpen, setWorkoutInfoModalIsOpen] = useState(false);
   // const [progressModalIsOpen, setProgressModalIsOpen] = useState(false);
   const [workoutsQuery, setWorkoutsQuery] = useState("");
   const [workoutsData, setWorkoutsData] = useState([]);
-  const [isWorkoutFormSubmitted, setIsWorkoutFormSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [progress, setProgress] = useState(0);
+  const [error, setError] = useState(null);
 
   function openModal(setModalStateFn) {
     setModalStateFn(true);
@@ -243,6 +246,7 @@ function Profile() {
               }}
               onAfterClose={() => {
                 setWorkoutsData([]);
+                setError(null);
               }}
               contentLabel="Workouts Search Modal"
               style={modalStyles}
@@ -253,6 +257,7 @@ function Profile() {
                   className="add-new-workout-form"
                   onSubmit={(e) => {
                     e.preventDefault();
+                    setIsLoading(true);
                     axios
                       .get(
                         "https://api.api-ninjas.com/v1/exercises?name=" +
@@ -261,22 +266,20 @@ function Profile() {
                           headers: {
                             "X-Api-Key": process.env.REACT_APP_API_NINJAS_KEY,
                           },
-                          onDownloadProgress: (progEvent) =>
-                            setProgress(
-                              (progEvent.loaded / progEvent.total) * 100
-                            ),
                         }
                       )
                       .then((res) => {
-                        setIsLoading(true);
-                        setWorkoutsData([...res.data]);
+                        if (res.data.length) {
+                          setWorkoutsData([...res.data]);
+                        } else {
+                          setError("No workouts found");
+                        }
                       })
-                      .catch((err) => console.error(err))
+                      .catch((err) => setError(err))
                       .finally(() => {
                         setIsLoading(false);
                       });
                     setWorkoutsQuery("");
-                    setIsWorkoutFormSubmitted(true);
                   }}
                 >
                   <input
@@ -288,21 +291,30 @@ function Profile() {
                     autoFocus
                   />
                 </form>
-                {isWorkoutFormSubmitted ? (
-                  <div>
-                    <div className="workouts-data">
-                      {!isLoading && workoutsData.length
-                        ? workoutsData.map((exercise, i) => (
-                            <WorkoutInfo
-                              exercise={exercise}
-                              i={i}
-                              closeModal={closeModal}
-                            />
-                          ))
-                        : null}
-                    </div>
+                {isLoading ? (
+                  <RingLoader
+                    color="#00a7e1"
+                    loading={isLoading}
+                    cssOverride={override}
+                    size={50}
+                    aria-label="Loading Spinner"
+                    data-testid="loader"
+                  />
+                ) : (
+                  <div className="workouts-data">
+                    {!isLoading && workoutsData.length ? (
+                      workoutsData.map((exercise, i) => (
+                        <WorkoutInfo
+                          exercise={exercise}
+                          i={i}
+                          closeModal={closeModal}
+                        />
+                      ))
+                    ) : error ? (
+                      <Error message={error} />
+                    ) : null}
                   </div>
-                ) : null}
+                )}
               </div>
             </Modal>
             <h3>Routines:</h3>

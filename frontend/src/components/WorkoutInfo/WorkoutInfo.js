@@ -1,5 +1,6 @@
 import Modal from "react-modal";
 import WorkoutItem from "../WorkoutItem/WorkoutItem";
+import Button from "../Button/Button";
 import { useState } from "react";
 
 const modalStyles = {
@@ -53,7 +54,7 @@ function WorkoutInfo({ exercise, i, closeModal }) {
           <p>Reps: 10</p>
           <p className="workout-instructions">{exercise.instructions}</p>
           <p>Difficulty: {exercise.difficulty}</p>
-          <button>ADD</button>
+          <Button text={"ADD"} />
         </div>
         <div className="workout-vid">
           <iframe
