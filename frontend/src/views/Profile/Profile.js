@@ -258,6 +258,7 @@ function Profile() {
                   onSubmit={(e) => {
                     e.preventDefault();
                     setIsLoading(true);
+                    setWorkoutsData([]);
                     axios
                       .get(
                         "https://api.api-ninjas.com/v1/exercises?name=" +
@@ -278,8 +279,8 @@ function Profile() {
                       .catch((err) => setError(err))
                       .finally(() => {
                         setIsLoading(false);
+                        setWorkoutsQuery("");
                       });
-                    setWorkoutsQuery("");
                   }}
                 >
                   <input
