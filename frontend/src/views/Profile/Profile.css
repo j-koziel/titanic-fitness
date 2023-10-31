@@ -288,7 +288,7 @@
 }
 
 .add-new-meal-form input::placeholder {
-  color: #fff;
+  color: #4e565e;
 }
 
 .add-new-workout {
@@ -305,7 +305,7 @@
 }
 
 .add-new-workout-form input::placeholder {
-  color: #fff;
+  color: #4e565e;
 }
 
 .workouts-data {

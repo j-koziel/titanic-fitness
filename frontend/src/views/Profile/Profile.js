@@ -7,6 +7,8 @@ import "react-circular-progressbar/dist/styles.css";
 import { useState } from "react";
 import axios from "axios";
 import Error from "../../components/Error/Error";
+import WorkoutItem from "../../components/WorkoutItem/WorkoutItem";
+import ProgressBar from "@ramonak/react-progress-bar";
 
 const modalStyles = {
   overlay: {
@@ -53,6 +55,8 @@ function Profile() {
   const [workoutsQuery, setWorkoutsQuery] = useState("");
   const [workoutsData, setWorkoutsData] = useState([]);
   const [isWorkoutFormSubmitted, setIsWorkoutFormSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   function openModal(setModalStateFn) {
     setModalStateFn(true);
@@ -234,6 +238,8 @@ function Profile() {
               isOpen={addWorkoutModalIsOpen}
               onRequestClose={() => {
                 closeModal(setAddWorkoutModalIsOpen);
+              }}
+              onAfterClose={() => {
                 setWorkoutsData([]);
               }}
               contentLabel="Workouts Search Modal"
@@ -253,10 +259,21 @@ function Profile() {
                           headers: {
                             "X-Api-Key": process.env.REACT_APP_API_NINJAS_KEY,
                           },
+                          onDownloadProgress: (progEvent) =>
+                            setProgress(
+                              (progEvent.loaded / progEvent.total) * 100
+                            ),
                         }
                       )
-                      .then((res) => setWorkoutsData([...res.data]))
-                      .catch((err) => console.error(err));
+                      .then((res) => {
+                        setIsLoading(true);
+                        setWorkoutsData([...res.data]);
+                      })
+                      .catch((err) => console.error(err))
+                      .finally(() => {
+                        setProgress(0);
+                        setIsLoading(false);
+                      });
                     setWorkoutsQuery("");
                     setIsWorkoutFormSubmitted(true);
                   }}
@@ -272,22 +289,12 @@ function Profile() {
                 </form>
                 {isWorkoutFormSubmitted ? (
                   <div className="workouts-data">
-                    {workoutsData.length ? (
+                    {!isLoading && workoutsData.length ? (
                       workoutsData.map((exercise) => (
-                        <div>
-                          <div className="workout">
-                            <p className="workout-title">{exercise.name}</p>
-                            <p className="workout-muscle-group">
-                              {exercise.muscle}
-                            </p>
-                            <p className="workout-reps">
-                              {exercise.difficulty}
-                            </p>
-                          </div>
-                        </div>
+                        <WorkoutItem exercise={exercise} />
                       ))
                     ) : (
-                      <Error message="No workouts found" />
+                      <ProgressBar completed={progress} width="60%" />
                     )}
                   </div>
                 ) : null}
