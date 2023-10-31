@@ -229,8 +229,11 @@ function Profile() {
             </button>
             <Modal
               isOpen={addWorkoutModalIsOpen}
-              onRequestClose={() => closeModal(setAddWorkoutModalIsOpen)}
-              contentLabel="Example Modal"
+              onRequestClose={() => {
+                closeModal(setAddWorkoutModalIsOpen);
+                setWorkoutsData([]);
+              }}
+              contentLabel="Workouts Search Modal"
               style={modalStyles}
               closeTimeoutMS={700}
             >
