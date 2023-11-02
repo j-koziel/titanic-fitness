@@ -11,7 +11,7 @@
     "eatingPlan": ["keto", "high_fiber"],
     "workoutPlans": ["crossfit", "HIIT"],
     "goals": ["challenge_limits", "fat_loss"],
-    "history": ["2017-crossfit_competition", "2019-HIIT_challenge"],
+    "history": [],
     "weight": 60.5,
     "height": 167.8,
     "preferredGym": {
@@ -32,7 +32,7 @@
     "eatingPlan": ["vegan", "gluten-free"],
     "workoutPlans": ["cycling", "bodyweight_exercises"],
     "goals": ["environment_friendly_fitness", "stay_fit"],
-    "history": ["2012-cycling_tour", "2016-bodyweight_challenge"],
+    "history": [],
     "weight": 68.0,
     "height": 178.2,
     "preferredGym": {
@@ -53,7 +53,7 @@
     "eatingPlan": ["pescatarian", "organic"],
     "workoutPlans": ["swimming", "weight_training"],
     "goals": ["build_muscle", "maintain_health"],
-    "history": ["2013-swim_competition", "2017-weightlifting_champion"],
+    "history": [],
     "weight": 63.5,
     "height": 170.3,
     "preferredGym": {
