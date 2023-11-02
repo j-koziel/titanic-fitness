@@ -25,7 +25,7 @@ async def login_user(cand_user: CandUser):
   response_data = {"message": "Successfully logged in"}
   for user in db:
     if cand_user.username == user.username and cand_user.password == user.password:
-      response_data["data": user]
+      response_data["data"] = user
   
   if not response_data["data"]:
     raise HTTPException(500, "Something went wrong")
