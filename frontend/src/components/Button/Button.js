@@ -1,11 +1,15 @@
 import "./Button.css";
 import { useNavigate } from "react-router-dom";
 
-function Button({ text, path = "" }) {
+function Button({ text, path = "", onClickFn }) {
   const navigateTo = useNavigate();
 
   if (!path) {
-    return <button className="button-component">{text}</button>;
+    return (
+      <button className="button-component" onClick={onClickFn}>
+        {text}
+      </button>
+    );
   } else {
     return (
       <button

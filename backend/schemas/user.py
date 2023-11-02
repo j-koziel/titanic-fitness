@@ -4,8 +4,8 @@ from schemas.gym import Gym
 
 
 class User(BaseModel):
-  first_name: str
-  last_name: str
+  firstName: str
+  lastName: str
   email: str
   username: str
   password: str
@@ -13,20 +13,23 @@ class User(BaseModel):
   age: int = 18
   userType: str = "free"
   eatingPlan: list = []
-  workoutPlans: list = []
-  goals: list = []
-  history: list = []
+  workouts: list[dict] = []
+  goals: list = [[0, 0], [0, 0], [0, 0]]
+  dailyStreakGoal: list = [0, 0]
+  calorieGoal: list = [0, 0]
+  weightGoal: list = [0, 0]
+  history: list[dict] = []
   weight: float = 0
   height: float = 0
-  preferredGym: Gym = []
+  preferredGym: Gym = {}
 
 class CandUser(BaseModel):
   username: str
   password: str
   
 class NewUser(BaseModel):
-  first_name: str
-  last_name: str
+  firstName: str
+  lastName: str
   dob: str 
   username: str
   password: str

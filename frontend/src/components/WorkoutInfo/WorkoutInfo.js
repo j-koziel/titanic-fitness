@@ -5,7 +5,6 @@ import { useState } from "react";
 
 const modalStyles = {
   overlay: {
-    backdropFilter: "blur(5px)",
     backgroundColor: "none",
   },
   content: {
@@ -30,7 +29,7 @@ const modalStyles = {
   },
 };
 
-function WorkoutInfo({ exercise, i, closeModal }) {
+function WorkoutInfo({ exercise, i, closeModal, updateFn }) {
   const [workoutInfoModalIsOpen, setWorkoutInfoModalIsOpen] = useState(false);
 
   return (
@@ -54,7 +53,12 @@ function WorkoutInfo({ exercise, i, closeModal }) {
           <p>Reps: 10</p>
           <p className="workout-instructions">{exercise.instructions}</p>
           <p>Difficulty: {exercise.difficulty}</p>
-          <Button text={"ADD"} />
+          <Button
+            text={"ADD"}
+            onClickFn={() => {
+              updateFn(exercise);
+            }}
+          />
         </div>
         <div className="workout-vid">
           <iframe

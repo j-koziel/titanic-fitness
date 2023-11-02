@@ -1,195 +1,36 @@
 [
-    {
-        "first_name": "Olivia",
-        "last_name": "Anderson",
-        "email": "test@example.com",
-        "username": "olivia_a",
-        "password": "strongpass#9",
-        "dob": "1998-07-18T00:00:00",
-        "age": 18,
-        "userType": "premium",
-        "eatingPlan": [
-            "keto",
-            "high_fiber"
-        ],
-        "workoutPlans": [
-            "crossfit",
-            "HIIT"
-        ],
-        "goals": [
-            "challenge_limits",
-            "fat_loss"
-        ],
-        "history": [],
-        "weight": 60.5,
-        "height": 167.8,
-        "preferredGym": {
-            "staff": [
-                "Zen Fitness Center"
-            ],
-            "location": "456 Oak Avenue, Townsville",
-            "users": [
-                "test user"
-            ]
-        }
-    },
-    {
-        "first_name": "Charlie",
-        "last_name": "Brown",
-        "email": "test1@example.com",
-        "username": "charlie_b",
-        "password": "brownie@567",
-        "dob": "1995-04-03T00:00:00",
-        "age": 18,
-        "userType": "regular",
-        "eatingPlan": [
-            "vegan",
-            "gluten-free"
-        ],
-        "workoutPlans": [
-            "cycling",
-            "bodyweight_exercises"
-        ],
-        "goals": [
-            "environment_friendly_fitness",
-            "stay_fit"
-        ],
-        "history": [],
-        "weight": 68.0,
-        "height": 178.2,
-        "preferredGym": {
-            "staff": [
-                "Zen Fitness Center"
-            ],
-            "location": "456 Oak Avenue, Townsville",
-            "users": [
-                "test user"
-            ]
-        }
-    },
-    {
-        "first_name": "Eva",
-        "last_name": "Williams",
-        "email": "test1@example.com",
-        "username": "evaw",
-        "password": "evapass!23",
-        "dob": "1988-12-10T00:00:00",
-        "age": 18,
-        "userType": "premium",
-        "eatingPlan": [
-            "pescatarian",
-            "organic"
-        ],
-        "workoutPlans": [
-            "swimming",
-            "weight_training"
-        ],
-        "goals": [
-            "build_muscle",
-            "maintain_health"
-        ],
-        "history": [],
-        "weight": 63.5,
-        "height": 170.3,
-        "preferredGym": {
-            "staff": [
-                "Zen Fitness Center"
-            ],
-            "location": "456 Oak Avenue, Townsville",
-            "users": [
-                "test user"
-            ]
-        }
-    },
-    {
-        "first_name": "Bob",
-        "last_name": "Johnson",
-        "email": "test1@example.com",
-        "username": "bobj",
-        "password": "securepass123",
-        "dob": "1992-09-22T00:00:00",
-        "age": 18,
-        "userType": "regular",
-        "eatingPlan": [
-            "high-carb",
-            "low-fat"
-        ],
-        "workoutPlans": [
-            "running",
-            "circuit_training"
-        ],
-        "goals": [
-            "improve_endurance",
-            "lose_weight"
-        ],
-        "history": [
-            "2018-marathon",
-            "2020-circuit_challenge"
-        ],
-        "weight": 80.2,
-        "height": 185.0,
-        "preferredGym": {
-            "staff": [
-                "Zen Fitness Center"
-            ],
-            "location": "456 Oak Avenue, Townsville",
-            "users": [
-                "test user"
-            ]
-        }
-    },
-    {
-        "first_name": "Alice",
-        "last_name": "Smith",
-        "email": "test1@example.com",
-        "username": "alice123",
-        "password": "myp@ssword",
-        "dob": "1985-05-15T00:00:00",
-        "age": 18,
-        "userType": "premium",
-        "eatingPlan": [
-            "balanced",
-            "vegetarian"
-        ],
-        "workoutPlans": [
-            "yoga",
-            "pilates"
-        ],
-        "goals": [
-            "stress_relief",
-            "flexibility"
-        ],
-        "history": [
-            "2010-yoga_retreat",
-            "2015-pilates_certification"
-        ],
-        "weight": 55.8,
-        "height": 162.5,
-        "preferredGym": {
-            "staff": [
-                "Zen Fitness Center"
-            ],
-            "location": "456 Oak Avenue, Townsville",
-            "users": [
-                "test user"
-            ]
-        }
-    },
-    {
-        "first_name": "Jonathan",
-        "last_name": "Koziel",
-        "email": "test@gmail.com",
-        "username": "j-koziel",
-        "password": "testpass123",
-        "dob": "2023-11-02",
-        "age": 18,
-        "userType": "free",
-        "eatingPlan": [],
-        "workoutPlans": [],
-        "goals": [],
-        "history": [],
-        "weight": 0,
-        "height": 0,
-        "preferredGym": []
+  {
+    "firstName": "Jonathan",
+    "lastName": "Koziel",
+    "email": "test@gmail.com",
+    "username": "j-koziel",
+    "password": "testpass123",
+    "dob": "2023-11-02",
+    "age": 18,
+    "userType": "free",
+    "eatingPlan": [],
+    "workouts": [
+      {
+        "name": "Incline Hammer Curls",
+        "type": "strength",
+        "muscle": "biceps",
+        "equipment": "dumbbell",
+        "difficulty": "beginner",
+        "instructions": "Seat yourself on an incline bench with a dumbbell in each hand. You should pressed firmly against he back with your feet together. Allow the dumbbells to hang straight down at your side, holding them with a neutral grip. This will be your starting position. Initiate the movement by flexing at the elbow, attempting to keep the upper arm stationary. Continue to the top of the movement and pause, then slowly return to the start position."
+      }
+    ],
+    "dailyStreakGoal": [2, 5],
+    "calorieGoal": [50, 250],
+    "weightGoal": [90, 100],
+    "history": [
+      { "title": "Training", "duration": "0:30", "date": "02/11/2023" }
+    ],
+    "weight": 0,
+    "height": 0,
+    "preferredGym": {
+      "staff": ["Zen Fitness Center"],
+      "location": "456 Oak Avenue, Townsville",
+      "users": ["test user"]
     }
+  }
 ]

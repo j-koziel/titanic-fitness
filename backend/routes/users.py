@@ -6,7 +6,7 @@ from schemas.db_utils import load_db, save_db
 
 router = APIRouter(prefix="/api/v1/users", tags=["users"])
 
-db = load_db(r"C:/Users/40184214/titanic-fitness/backend/db.json")
+db = load_db(r"/home/jonathan/coding-stuff/titanic-fitness/backend/db.json")
 
 @router.get("/")
 async def get_all_users():
@@ -21,7 +21,7 @@ async def register_new_user(new_user: NewUser):
   user_to_append = dict(new_user)
     
   db.append(User(**user_to_append))
-  save_db(db, r"C:/Users/40184214/titanic-fitness/backend/db.json")
+  save_db(db, r"/home/jonathan/coding-stuff/titanic-fitness/backend/db.json")
   return new_user
   
 @router.post("/auth")
@@ -30,7 +30,9 @@ async def login_user(cand_user: CandUser):
     if cand_user.username == user.username and cand_user.password == user.password:
       return user
     else:
-      raise HTTPException(500, "Something went wrong")
+      continue  
+      
+  raise HTTPException(500, "Something went wrong")
 
 
   # raise HTTPException(401, detail="Your username or password is incorrect")

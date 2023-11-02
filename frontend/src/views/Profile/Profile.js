@@ -10,6 +10,8 @@ import Error from "../../components/Error/Error";
 import WorkoutInfo from "../../components/WorkoutInfo/WorkoutInfo";
 import RingLoader from "react-spinners/RingLoader";
 import { AuthContext } from "../../components/AuthContext";
+import UpdateGoalForm from "../../forms/UpdateGoalForm/UpdateGoalForm";
+import AddHistoryForm from "../../forms/AddHistoryForm/AddHistoryForm";
 
 const modalStyles = {
   overlay: {
@@ -39,10 +41,6 @@ const modalStyles = {
 };
 
 function Profile() {
-  const dailyPercentage = 50;
-  const caloriePercentage = 23;
-  const weightPercentage = 74;
-
   const progressRingStyles = {
     trailColor: "#00536F",
     pathColor: "#00A7E1",
@@ -55,12 +53,24 @@ function Profile() {
     borderColor: "#00a7e1",
   };
 
-  const { user } = useContext(AuthContext);
+  const { user, setUser } = useContext(AuthContext);
+  const dailyStreakGoal = [
+    user["dailyStreakGoal"][0],
+    user["dailyStreakGoal"][1],
+  ];
+  const caloriesGoal = [user["calorieGoal"][0], user["calorieGoal"][1]];
+  const weightGoal = [user["weightGoal"][0], user["weightGoal"][1]];
 
   const [workoutModalIsOpen, setWorkoutModalIsOpen] = useState(false);
   const [addWorkoutModalIsOpen, setAddWorkoutModalIsOpen] = useState(false);
   const [addMealModalIsOpen, setAddMealModalIsOpen] = useState(false);
   // const [progressModalIsOpen, setProgressModalIsOpen] = useState(false);
+  const [dailyStreakGoalModalIsOpen, setDailyStreakGoalModalIsOpen] =
+    useState(false);
+  const [calorieGoalModalIsOpen, setCalorieGoalModalIsOpen] = useState(false);
+  const [weightGoalModalIsOpen, setWeightGoalModalIsOpen] = useState(false);
+  const [addHistoryModalIsOpen, setAddHistoryModalIsOpen] = useState(false);
+
   const [workoutsQuery, setWorkoutsQuery] = useState("");
   const [workoutsData, setWorkoutsData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -71,6 +81,21 @@ function Profile() {
   }
   function closeModal(setModalStateFn) {
     setModalStateFn(false);
+  }
+
+  function updateUser(fieldToUpdate, valueToUpdateWith, index = 0) {
+    user[fieldToUpdate][index] = valueToUpdateWith;
+    setUser({ ...user });
+  }
+
+  function addWorkout(workoutToAdd) {
+    user["workouts"].push(workoutToAdd);
+    setUser({ ...user });
+  }
+
+  function addHistory(newHistoryItem) {
+    user["history"].push(newHistoryItem);
+    setUser({ ...user });
   }
 
   return (
@@ -92,50 +117,133 @@ function Profile() {
           <h2>Your Goals 📈:</h2>
           <div className="goals-progress-container">
             <div className="goals-progress-rings">
-              <div className="goals-progress-ring">
-                <CircularProgressbar
-                  value={dailyPercentage}
-                  text={`${dailyPercentage}%`}
-                  styles={buildStyles(progressRingStyles)}
+              <button
+                onClick={(e) => {
+                  openModal(setDailyStreakGoalModalIsOpen);
+                }}
+                style={{
+                  all: "unset",
+                  cursor: "pointer",
+                }}
+              >
+                <div className="goals-progress-ring">
+                  <CircularProgressbar
+                    value={(dailyStreakGoal[0] / dailyStreakGoal[1]) * 100}
+                    text={`${dailyStreakGoal[0]}/${dailyStreakGoal[1]}`}
+                    styles={buildStyles(progressRingStyles)}
+                  />
+                  <p>Daily Streak</p>
+                </div>
+              </button>
+              <Modal
+                isOpen={dailyStreakGoalModalIsOpen}
+                onRequestClose={() => closeModal(setDailyStreakGoalModalIsOpen)}
+                contentLabel="Daily Streak Goal Modal"
+                style={modalStyles}
+                closeTimeoutMS={700}
+              >
+                <UpdateGoalForm
+                  updateFn={updateUser}
+                  goalToUpdate="dailyStreakGoal"
                 />
-                <p>Daily Streak</p>
-              </div>
+              </Modal>
 
-              <div className="goals-progress-ring">
-                <CircularProgressbar
-                  value={caloriePercentage}
-                  text={`${caloriePercentage}%`}
-                  styles={buildStyles(progressRingStyles)}
-                />
-                <p>Calories Burnt</p>
-              </div>
+              <button
+                onClick={(e) => {
+                  openModal(setCalorieGoalModalIsOpen);
+                }}
+                style={{
+                  all: "unset",
+                  cursor: "pointer",
+                }}
+              >
+                <div className="goals-progress-ring">
+                  <CircularProgressbar
+                    value={(caloriesGoal[0] / caloriesGoal[1]) * 100}
+                    text={`${caloriesGoal[0]}/${caloriesGoal[1]}`}
+                    styles={buildStyles(progressRingStyles)}
+                  />
 
-              <div className="goals-progress-ring">
-                <CircularProgressbar
-                  value={weightPercentage}
-                  text={`${weightPercentage}%`}
-                  styles={buildStyles(progressRingStyles)}
+                  <p>Calories Burnt</p>
+                </div>
+              </button>
+              <Modal
+                isOpen={calorieGoalModalIsOpen}
+                onRequestClose={() => closeModal(setCalorieGoalModalIsOpen)}
+                contentLabel="Calories Goal Modal"
+                style={modalStyles}
+                closeTimeoutMS={700}
+              >
+                <UpdateGoalForm
+                  updateFn={updateUser}
+                  goalToUpdate="calorieGoal"
                 />
-                <p>Weight</p>
-              </div>
+              </Modal>
+
+              <button
+                onClick={(e) => {
+                  openModal(setWeightGoalModalIsOpen);
+                }}
+                style={{
+                  all: "unset",
+                  cursor: "pointer",
+                }}
+              >
+                <div className="goals-progress-ring">
+                  <CircularProgressbar
+                    value={(weightGoal[0] / weightGoal[1]) * 100}
+                    text={`${weightGoal[0]}/${weightGoal[1]}`}
+                    styles={buildStyles(progressRingStyles)}
+                  />
+                  <p>Weight</p>
+                </div>
+              </button>
+              <Modal
+                isOpen={weightGoalModalIsOpen}
+                onRequestClose={() => closeModal(setWeightGoalModalIsOpen)}
+                contentLabel="Weight Goal Modal"
+                style={modalStyles}
+                closeTimeoutMS={700}
+              >
+                <UpdateGoalForm
+                  updateFn={updateUser}
+                  goalToUpdate="weightGoal"
+                />
+              </Modal>
             </div>
           </div>
         </div>
         <div className="history-container">
-          <h2>Your History ⌚:</h2>
-          <div className="history-items">
-            {user["history"].map((historyItem) => {
-              return (
-                <div className="history-item">
-                  <div>
-                    <p>historyItem["title"]</p>
-                    <p>historyItem["duration"]</p>
-                  </div>
-                  <div>13/10/2023</div>
-                </div>
-              );
-            })}
+          <div className="history-container-header">
+            <button onClick={() => openModal(setAddHistoryModalIsOpen)}>
+              ADD
+            </button>
+            <h2>Your History ⌚:</h2>
           </div>
+          {!user["history"].length ? null : (
+            <div className="history-items">
+              {user["history"].map((historyItem) => {
+                return (
+                  <div className="history-item">
+                    <div>
+                      <p>{historyItem["title"]}</p>
+                      <p>{historyItem["duration"]}</p>
+                    </div>
+                    <div>{historyItem["date"]}</div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+          <Modal
+            isOpen={addHistoryModalIsOpen}
+            onRequestClose={() => closeModal(setAddHistoryModalIsOpen)}
+            contentLabel="Add History Modal"
+            style={modalStyles}
+            closeTimeoutMS={700}
+          >
+            <AddHistoryForm updateFn={addHistory} />
+          </Modal>
         </div>
       </div>
       <div className="plans-container">
@@ -269,6 +377,7 @@ function Profile() {
                           exercise={exercise}
                           i={i}
                           closeModal={closeModal}
+                          updateFn={addWorkout}
                         />
                       ))
                     ) : error ? (
@@ -280,48 +389,49 @@ function Profile() {
             </Modal>
             <h3>Routines:</h3>
             <div className="workouts">
-              <div
-                className="workout"
-                onClick={() => openModal(setWorkoutModalIsOpen)}
-              >
-                <p className="workout-title">push ups</p>
-                <p className="workout-muscle-group">chest</p>
-                <p className="workout-reps">Reps: 10</p>
-              </div>
-              <Modal
-                isOpen={workoutModalIsOpen}
-                onRequestClose={() => closeModal(setWorkoutModalIsOpen)}
-                contentLabel="Example Modal"
-                style={modalStyles}
-                closeTimeoutMS={700}
-              >
-                <div className="workout-info">
-                  <h2>Chest</h2>
-                  <h3>Push ups</h3>
-                  <p>Reps: 10</p>
-                  <p className="workout-instructions">
-                    With your legs extended back, place the hands below the
-                    shoulders, slightly wider than shoulder-width apart. Start
-                    bending your elbows and lower your chest until it's just
-                    above the floor. Push back to the starting position. A
-                    1-second push, 1-second pause, 2-second down count is ideal.
-                    Repeat.
-                  </p>
-                  <p>Difficulty: easy</p>
-                </div>
-                <div className="workout-vid">
-                  <iframe
-                    width="560"
-                    height="315"
-                    src="https://www.youtube.com/embed/IODxDxX7oi4?si=DZd6z3-fAC_5aXsW"
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                    style={{ borderRadius: "15px" }}
-                  ></iframe>
-                </div>
-              </Modal>
+              {user["workouts"].map((workout) => {
+                return (
+                  <div>
+                    <div
+                      className="workout"
+                      onClick={() => openModal(setWorkoutModalIsOpen)}
+                    >
+                      <p className="workout-title">{workout.name}</p>
+                      <p className="workout-muscle-group">{workout.muscle}</p>
+                      <p className="workout-reps">Reps: 10</p>
+                    </div>
+                    <Modal
+                      isOpen={workoutModalIsOpen}
+                      onRequestClose={() => closeModal(setWorkoutModalIsOpen)}
+                      contentLabel="Example Modal"
+                      style={modalStyles}
+                      closeTimeoutMS={700}
+                    >
+                      <div className="workout-info">
+                        <h2>{workout.muscle}</h2>
+                        <h3>{workout.name}</h3>
+                        <p>Reps: 10</p>
+                        <p className="workout-instructions">
+                          {workout.instructions}
+                        </p>
+                        <p>Difficulty: {workout.difficulty}</p>
+                      </div>
+                      <div className="workout-vid">
+                        <iframe
+                          width="560"
+                          height="315"
+                          src="https://www.youtube.com/embed/IODxDxX7oi4?si=DZd6z3-fAC_5aXsW"
+                          title="YouTube video player"
+                          frameborder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowfullscreen
+                          style={{ borderRadius: "15px" }}
+                        ></iframe>
+                      </div>
+                    </Modal>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
