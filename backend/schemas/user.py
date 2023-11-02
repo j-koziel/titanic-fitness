@@ -7,15 +7,28 @@ class User(BaseModel):
   first_name: str
   last_name: str
   full_name: str
+  email: str
   username: str
   password: str
   dob: datetime
   age: int
-  userType: str
-  eatingPlan: list
-  workoutPlans: list
-  goals: list
-  history: list
-  weight: float
-  height: float
+  userType: str = "free"
+  eatingPlan: list = []
+  workoutPlans: list = []
+  goals: list = []
+  history: list = []
+  weight: float = 0
+  height: float = 0
   preferredGym: Gym
+
+class CandUser(BaseModel):
+  username: str
+  password: str
+  
+class NewUser(BaseModel):
+  first_name: str
+  last_name: str
+  dob: datetime
+  username: str
+  password: str
+  email: str

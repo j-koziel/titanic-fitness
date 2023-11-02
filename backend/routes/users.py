@@ -1,22 +1,29 @@
-from fastapi import APIRouter, Depends
-from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from fastapi import APIRouter, HTTPException, status
+
+from schemas.user import NewUser, CandUser
 from schemas.db_utils import load_db
-from typing import Annotated
 
 router = APIRouter(prefix="/api/v1/users", tags=["users"])
 
-db = load_db("/home/jonathan/coding-stuff/titanic-fitness/backend/db.json")
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
-
+db = load_db(r"./db.json")
 
 @router.get("/")
 async def get_all_users():
   return db
 
 @router.post("/")
-async def create_new_user():
-  return "new user created"
-
+async def register_new_user(new_user: NewUser):
+  for user in db:
+    if new_user.email in user["email"]:
+      raise HTTPException(400, detail="This user already exists")
+    
+  db.append(NewUser)
+  return new_user
+  
 @router.post("/auth")
-async def auth_user(token: Annotated[str, Depends(oauth2_scheme)]):
-  return "user has been authenticated"
+async def login_user(cand_user: CandUser):
+  for user in db:
+    if cand_user["username"] != user["username"] or cand_user["password"] != user["password"]:
+      raise HTTPException(401, detail="Your username or password is incorrect")
+    
+  return cand_user
