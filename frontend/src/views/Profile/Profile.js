@@ -4,11 +4,12 @@ import Avatar from "../../assets/avatar.jpg";
 import Modal from "react-modal";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
 import Error from "../../components/Error/Error";
 import WorkoutInfo from "../../components/WorkoutInfo/WorkoutInfo";
 import RingLoader from "react-spinners/RingLoader";
+import { AuthContext } from "../../components/AuthContext";
 
 const modalStyles = {
   overlay: {
@@ -54,6 +55,8 @@ function Profile() {
     borderColor: "#00a7e1",
   };
 
+  const { user } = useContext(AuthContext);
+
   const [workoutModalIsOpen, setWorkoutModalIsOpen] = useState(false);
   const [addWorkoutModalIsOpen, setAddWorkoutModalIsOpen] = useState(false);
   const [addMealModalIsOpen, setAddMealModalIsOpen] = useState(false);
@@ -74,7 +77,9 @@ function Profile() {
     <div className="profile-page-container">
       <div className="info-history-container">
         <div className="user-info-container">
-          <h2 className="welcome-message">Welcome back, Jonathan 👋</h2>
+          <h2 className="welcome-message">
+            Welcome back, {user.data["first_name"]} 👋
+          </h2>
           <div className="profile-nav">
             <img src={Avatar} alt="You" className="profile-photo" />
             <ProfileButton

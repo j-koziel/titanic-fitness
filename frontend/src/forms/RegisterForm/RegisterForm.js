@@ -1,9 +1,39 @@
 import "./RegisterForm.css";
+import axios from "axios";
+import { useState, useContext } from "react";
+import { AuthContext } from "../../components/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 function RegisterForm({ formChange }) {
+  const [newUser, setNewUser] = useState({});
+  const navigate = useNavigate;
+  const { setUser } = useContext(AuthContext);
+
+  const register = (e) => {
+    e.preventDefault();
+    const postData = {
+      email,
+      first_name: firstName,
+      last_name: lastName,
+      username,
+      password,
+    };
+
+    axios
+      .post("http://localhost:8000/api/v1/users", postData)
+      .then((res) => {
+        setUser(res.data);
+        localStorage.setItem("user", JSON.stringify(res.data));
+        navigate("/profile");
+      })
+      .catch((err) => {
+        setError(err);
+      });
+  };
+
   return (
     <div className="auth-container register">
-      <form className="login-form">
+      <form className="login-form" onSubmit={register}>
         <div className="form-header">
           <h2>Register</h2>
           <p>
@@ -18,6 +48,9 @@ function RegisterForm({ formChange }) {
             id="email-input"
             required
             autoFocus
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
           />
         </div>
         <div className="input">
@@ -27,7 +60,6 @@ function RegisterForm({ formChange }) {
             placeholder="First Name"
             id="first-name-input"
             required
-            autoFocus
           />
         </div>
         <div className="input">
@@ -37,18 +69,11 @@ function RegisterForm({ formChange }) {
             placeholder="Surname"
             id="surname-input"
             required
-            autoFocus
           />
         </div>
         <div className="input">
-          <label htmlFor="age-input">Age</label>
-          <input
-            type="number"
-            placeholder="Age"
-            id="Age-input"
-            required
-            autoFocus
-          />
+          <label htmlFor="dob-input">Date Of Birth</label>
+          <input type="date" id="dob-input" required />
         </div>
         <div className="input">
           <label htmlFor="username-input">Username</label>
@@ -57,7 +82,6 @@ function RegisterForm({ formChange }) {
             placeholder="Username"
             id="username-input"
             required
-            autoFocus
           />
         </div>
         <div className="input">
