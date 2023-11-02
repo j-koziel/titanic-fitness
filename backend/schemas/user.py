@@ -6,12 +6,11 @@ from schemas.gym import Gym
 class User(BaseModel):
   first_name: str
   last_name: str
-  full_name: str
   email: str
   username: str
   password: str
-  dob: datetime
-  age: int
+  dob: str
+  age: int = 18
   userType: str = "free"
   eatingPlan: list = []
   workoutPlans: list = []
@@ -19,7 +18,7 @@ class User(BaseModel):
   history: list = []
   weight: float = 0
   height: float = 0
-  preferredGym: Gym
+  preferredGym: Gym = []
 
 class CandUser(BaseModel):
   username: str
@@ -28,7 +27,7 @@ class CandUser(BaseModel):
 class NewUser(BaseModel):
   first_name: str
   last_name: str
-  dob: datetime
+  dob: str 
   username: str
   password: str
   email: str

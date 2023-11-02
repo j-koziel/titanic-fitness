@@ -3,21 +3,18 @@ import axios from "axios";
 import { useState, useContext } from "react";
 import { AuthContext } from "../../components/AuthContext";
 import { useNavigate } from "react-router-dom";
+import Error from "../../components/Error/Error";
 
 function RegisterForm({ formChange }) {
+  const [error, setError] = useState(null);
   const [newUser, setNewUser] = useState({});
-  const navigate = useNavigate;
+  const navigate = useNavigate();
+
   const { setUser } = useContext(AuthContext);
 
   const register = (e) => {
     e.preventDefault();
-    const postData = {
-      email,
-      first_name: firstName,
-      last_name: lastName,
-      username,
-      password,
-    };
+    const postData = newUser;
 
     axios
       .post("http://localhost:8000/api/v1/users", postData)
@@ -33,7 +30,7 @@ function RegisterForm({ formChange }) {
 
   return (
     <div className="auth-container register">
-      <form className="login-form" onSubmit={register}>
+      <form className="login-form" onSubmit={(e) => register(e)}>
         <div className="form-header">
           <h2>Register</h2>
           <p>
@@ -49,7 +46,7 @@ function RegisterForm({ formChange }) {
             required
             autoFocus
             onChange={(e) => {
-              setUsername(e.target.value);
+              setNewUser({ ...newUser, email: e.target.value });
             }}
           />
         </div>
@@ -60,6 +57,9 @@ function RegisterForm({ formChange }) {
             placeholder="First Name"
             id="first-name-input"
             required
+            onChange={(e) => {
+              setNewUser({ ...newUser, first_name: e.target.value });
+            }}
           />
         </div>
         <div className="input">
@@ -69,11 +69,21 @@ function RegisterForm({ formChange }) {
             placeholder="Surname"
             id="surname-input"
             required
+            onChange={(e) => {
+              setNewUser({ ...newUser, last_name: e.target.value });
+            }}
           />
         </div>
         <div className="input">
           <label htmlFor="dob-input">Date Of Birth</label>
-          <input type="date" id="dob-input" required />
+          <input
+            type="date"
+            id="dob-input"
+            required
+            onChange={(e) => {
+              setNewUser({ ...newUser, dob: e.target.value });
+            }}
+          />
         </div>
         <div className="input">
           <label htmlFor="username-input">Username</label>
@@ -82,6 +92,9 @@ function RegisterForm({ formChange }) {
             placeholder="Username"
             id="username-input"
             required
+            onChange={(e) => {
+              setNewUser({ ...newUser, username: e.target.value });
+            }}
           />
         </div>
         <div className="input">
@@ -91,6 +104,9 @@ function RegisterForm({ formChange }) {
             placeholder="Password"
             id="password-input"
             required
+            onChange={(e) => {
+              setNewUser({ ...newUser, password: e.target.value });
+            }}
           />
         </div>
 
@@ -98,6 +114,7 @@ function RegisterForm({ formChange }) {
           Register
         </button>
       </form>
+      {error ? <Error message={error.message} /> : null}
     </div>
   );
 }

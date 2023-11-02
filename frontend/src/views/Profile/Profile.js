@@ -78,7 +78,7 @@ function Profile() {
       <div className="info-history-container">
         <div className="user-info-container">
           <h2 className="welcome-message">
-            Welcome back, {user.data["first_name"]} 👋
+            Welcome back, {user["first_name"]} 👋
           </h2>
           <div className="profile-nav">
             <img src={Avatar} alt="You" className="profile-photo" />
@@ -124,62 +124,17 @@ function Profile() {
         <div className="history-container">
           <h2>Your History ⌚:</h2>
           <div className="history-items">
-            <div className="history-item">
-              <div>
-                <p>Weight Training</p>
-                <p>0:30</p>
-              </div>
-              <div>13/10/2023</div>
-            </div>
-            <div className="history-item">
-              <div>
-                <p>Weight Training</p>
-                <p>0:30</p>
-              </div>
-              <div>13/10/2023</div>
-            </div>
-            <div className="history-item">
-              <div>
-                <p>Weight Training</p>
-                <p>0:30</p>
-              </div>
-              <div>13/10/2023</div>
-            </div>
-            <div className="history-item">
-              <div>
-                <p>Weight Training</p>
-                <p>0:30</p>
-              </div>
-              <div>13/10/2023</div>
-            </div>
-            <div className="history-item">
-              <div>
-                <p>Weight Training</p>
-                <p>0:30</p>
-              </div>
-              <div>13/10/2023</div>
-            </div>
-            <div className="history-item">
-              <div>
-                <p>Weight Training</p>
-                <p>0:30</p>
-              </div>
-              <div>13/10/2023</div>
-            </div>
-            <div className="history-item">
-              <div>
-                <p>Weight Training</p>
-                <p>0:30</p>
-              </div>
-              <div>13/10/2023</div>
-            </div>
-            <div className="history-item">
-              <div>
-                <p>Weight Training</p>
-                <p>0:30</p>
-              </div>
-              <div>13/10/2023</div>
-            </div>
+            {user["history"].map((historyItem) => {
+              return (
+                <div className="history-item">
+                  <div>
+                    <p>historyItem["title"]</p>
+                    <p>historyItem["duration"]</p>
+                  </div>
+                  <div>13/10/2023</div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
