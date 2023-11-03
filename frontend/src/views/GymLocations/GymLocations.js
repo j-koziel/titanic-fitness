@@ -4,6 +4,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 function GymLocations() {
   return (
     <div className="gym-locations-page-container">
+      <h1>Our Locations:</h1>
       <div className="gym-location">
         <div className="map-container" id="map">
           <MapContainer
@@ -22,8 +23,8 @@ function GymLocations() {
             </Marker>
           </MapContainer>
         </div>
-        <div>
-          <p>Address:</p>
+        <div className="address-detail">
+          <h2>Address:</h2>
           <p>Unit B</p>
           <p>Springfield Road Retail Park</p>
           <p>Hayes</p>

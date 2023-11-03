@@ -43,30 +43,32 @@ function Home() {
       <div className="social-media-container">
         <h1 className="socials-header">Our Socials</h1>
         <div className="logos-container">
-          <img className="youtube" src={YoutubeLogo} alt="Youtube Logo" />
+          <a href="https://www.youtube.com" target="_blank" rel="noreferrer"><img className="youtube" src={YoutubeLogo} alt="Youtube Logo" /></a>
 
-          <img
+          <a href="https://www.instagram.com" target="_blank" rel="noreferrer"><img
             className="instagram"
             src={InstagramLogo}
             alt="Instagram Logo"
             height="100px"
             width="100px"
-          />
+          /></a>
 
-          <img
+          <a href="https://www.facebook.com" target="_blank" rel="noreferrer">  <img
             className="facebook"
             src={FacebookLogo}
             alt="Facebook logo"
             height="100px"
             width="100px"
-          />
-          <img
+          /></a>
+          <a href="https://www.snapchat.com" target="_blank" rel="noreferrer"><img
             className="snapchat"
             src={SnapchatLogo}
             alt="Snapchat logo"
             height="100px"
             width="100px"
-          />
+          /></a>
+
+
         </div>
       </div>
     </div>
