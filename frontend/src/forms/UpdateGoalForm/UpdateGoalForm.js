@@ -1,7 +1,8 @@
 import { useState } from "react";
 
-function UpdateGoalForm({ updateFn, goalToUpdate }) {
-  const [newGoalState, setNewGoalState] = useState(0);
+function UpdateGoalForm({ updateFn, goalToUpdate, setModalIsOpenState }) {
+  const [newGoalProgress, setNewGoalProgress] = useState(0)
+  const [newGoal, setNewGoal] = useState(0);
 
   return (
     <div
@@ -20,14 +21,15 @@ function UpdateGoalForm({ updateFn, goalToUpdate }) {
         }}
         onSubmit={(e) => {
           e.preventDefault();
-          updateFn(goalToUpdate, newGoalState, 0);
+          updateFn(goalToUpdate, newGoalProgress, 0);
+          setModalIsOpenState(false)
         }}
       >
         <input
           type="number"
           id="new-goal"
-          value={newGoalState}
-          onChange={(e) => setNewGoalState(e.target.value)}
+          value={newGoalProgress}
+          onChange={(e) => setNewGoalProgress(e.target.value)}
         />
         <label htmlFor="new-goal">Made any progress?</label>
       </form>
@@ -39,14 +41,15 @@ function UpdateGoalForm({ updateFn, goalToUpdate }) {
         }}
         onSubmit={(e) => {
           e.preventDefault();
-          updateFn(goalToUpdate, newGoalState, 1);
+          updateFn(goalToUpdate, newGoal, 1);
+          setModalIsOpenState(false)
         }}
       >
         <input
           type="number"
           id="new-goal"
-          value={newGoalState}
-          onChange={(e) => setNewGoalState(e.target.value)}
+          value={newGoal}
+          onChange={(e) => setNewGoal(e.target.value)}
         />
         <label htmlFor="new-goal">Your new goal</label>
       </form>

@@ -152,6 +152,7 @@ function Profile() {
                 <UpdateGoalForm
                   updateFn={updateUser}
                   goalToUpdate="dailyStreakGoal"
+                  setModalIsOpenState={setDailyStreakGoalModalIsOpen}
                 />
               </Modal>
 
@@ -184,6 +185,7 @@ function Profile() {
                 <UpdateGoalForm
                   updateFn={updateUser}
                   goalToUpdate="calorieGoal"
+                  setModalIsOpenState={setCalorieGoalModalIsOpen}
                 />
               </Modal>
 
@@ -215,6 +217,7 @@ function Profile() {
                 <UpdateGoalForm
                   updateFn={updateUser}
                   goalToUpdate="weightGoal"
+                  setModalIsOpenState={setWeightGoalModalIsOpen}
                 />
               </Modal>
             </div>
@@ -234,7 +237,7 @@ function Profile() {
                   <div className="history-item">
                     <div>
                       <p>{historyItem["title"]}</p>
-                      <p>{historyItem["duration"]}</p>
+                      <p>{historyItem["duration"]} minutes</p>
                     </div>
                     <div>{historyItem["date"]}</div>
                   </div>
@@ -249,7 +252,7 @@ function Profile() {
             style={modalStyles}
             closeTimeoutMS={700}
           >
-            <AddHistoryForm updateFn={addHistory} />
+            <AddHistoryForm updateFn={addHistory} setHistoryModalIsOpen={setAddHistoryModalIsOpen} />
           </Modal>
         </div>
       </div>

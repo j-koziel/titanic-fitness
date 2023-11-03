@@ -1,7 +1,7 @@
 import "./AddHistoryForm.css";
 import { useState } from "react";
 
-function AddHistoryForm({ updateFn }) {
+function AddHistoryForm({ updateFn, setHistoryModalIsOpen }) {
   const [newHistoryItem, setNewHistoryItem] = useState({});
 
   return (
@@ -9,6 +9,7 @@ function AddHistoryForm({ updateFn }) {
       onSubmit={(e) => {
         e.preventDefault();
         updateFn(newHistoryItem);
+        setHistoryModalIsOpen(false)
       }}
       className="add-history-form"
     >
@@ -24,7 +25,7 @@ function AddHistoryForm({ updateFn }) {
         autoFocus
         required
       />
-      <label htmlFor="history-duration">How long?</label>
+      <label htmlFor="history-duration">How long (in minutes)?</label>
       <input
         type="number"
         id="history-duration"
