@@ -26,6 +26,7 @@ const modalStyles = {
     justifyContent: "center",
     alignItems: "center",
     gap: "200px",
+    textAlign: "center",
   },
 };
 

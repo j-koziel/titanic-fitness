@@ -266,7 +266,7 @@
   flex-direction: column;
 }
 
-.workout {
+.user-workout {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -284,15 +284,15 @@
   transform-origin: 50% 30%;
 }
 
-.workout p {
+.user-workout p {
   margin: 0px 5px;
 }
 
-.workout:hover {
+.user-workout:hover {
   transform: scale(1.03);
 }
 
-.workout-muscle-group {
+.user-workout-muscle-group {
   font-weight: bold;
 }
 
@@ -309,7 +309,7 @@
   opacity: 0;
 }
 
-.workout-info {
+.user-workout-info {
   display: flex;
   flex-direction: column;
   align-items: center;

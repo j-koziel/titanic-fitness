@@ -393,12 +393,14 @@ function Profile() {
                 return (
                   <div>
                     <div
-                      className="workout"
+                      className="user-workout"
                       onClick={() => openModal(setWorkoutModalIsOpen)}
                     >
-                      <p className="workout-title">{workout.name}</p>
-                      <p className="workout-muscle-group">{workout.muscle}</p>
-                      <p className="workout-reps">Reps: 10</p>
+                      <p className="user-workout-title">{workout.name}</p>
+                      <p className="user-workout-muscle-group">
+                        {workout.muscle}
+                      </p>
+                      <p className="user-workout-reps">Reps: 10</p>
                     </div>
                     <Modal
                       isOpen={workoutModalIsOpen}
@@ -407,16 +409,16 @@ function Profile() {
                       style={modalStyles}
                       closeTimeoutMS={700}
                     >
-                      <div className="workout-info">
+                      <div className="user-workout-info">
                         <h2>{workout.muscle}</h2>
                         <h3>{workout.name}</h3>
                         <p>Reps: 10</p>
-                        <p className="workout-instructions">
+                        <p className="user-workout-instructions">
                           {workout.instructions}
                         </p>
                         <p>Difficulty: {workout.difficulty}</p>
                       </div>
-                      <div className="workout-vid">
+                      <div className="user-workout-vid">
                         <iframe
                           width="560"
                           height="315"
