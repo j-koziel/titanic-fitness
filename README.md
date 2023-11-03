@@ -1,4 +1,12 @@
-﻿# titanic-fitness
+# TODO
+[] - Add sitemap
+[] - Complete about page
+[] - Complete gym locations page
+[] - Complete subscriptions page
+[] - Create gym database
+[] - Create meal plans database
+ 
+ # titanic-fitness
 
 ## deploy status
 
@@ -48,6 +56,11 @@ Feature
 - 19/10/2023 - Created an Error component which displays if the user enters their details and there is an error in the backend.
   ![image](https://github.com/j-koziel/titanic-fitness/assets/68497216/8d84fb63-485f-4969-aff1-c0e0937d19ed)
 
+- 02/11/2023 - Integrated with the backend. No authentication in any way (no jwt) just checks if the password and username match.
+  1. Test 1: (data -> username: bobj password: testpass123) Was getting a CORS error on the frontend but in reality there was an error in the backend which was causing the error in the frontend. To fix this I added CORS middleware to the backend which fixed the issue.
+  2. Test 2: (same data) Received a 422 unprocessable entity error. This was because I was using the wrong endpoint in the frontend to log in the user in the backend. After I changed the endpoint it worked as expected.
+  3. Test 3: (different data) Logs in as well, and displays the correct data in the frontend. 
+
 
  
 ### Profile page
@@ -62,10 +75,12 @@ Feature
 - 27/10/2023 - Added functionality to get exercises from the API ninjas, exercises api.
   1. Test 1: The exercises come back as they are supposed to but there is a small security issue where I reveal the token in plain sight. This should be hidden from the git repository.
  ![image](https://github.com/j-koziel/titanic-fitness/assets/68497216/d8a7f24e-3e6c-4a23-9053-08e4832be6f7)
+- 02/11/2023 - Now the profile page uses the user data that is received from the backend
 
 
 ## Backend (Version 2) - 1 week
 - 17/10/2023 - Started making the backend. Made the mock db and created a route which gets all the users from the mock db
-
-
-## Backend/frontend integration (Version 3) 1 - week
+- 02/11/2023 - Created endpoints to register a new user and to log in a user. As mentioned before this does not have any proper or secure auth just checks usernames/passwords.
+- 02/11/2023 - Added CORS middleware
+- 02/11/2023 - Created Gym data model
+- 02/11/2023 - Started making gym endpoints
