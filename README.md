@@ -1,13 +1,4 @@
-# TODO
-- [ ] Add sitemap
-- [ ] Complete about page
-- [ ] Complete gym locations page
-- [ ] Complete subscriptions page
-- [ ] Create gym database
-- [ ] Create meal plans database
-- [ ] Use meal api to get meals
-- [ ] Make form fields required in history
-- [ ] fix progress form
+
  
  # titanic-fitness
 
