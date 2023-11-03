@@ -85,3 +85,18 @@ Feature
 - 02/11/2023 - Added CORS middleware
 - 02/11/2023 - Created Gym data model
 - 02/11/2023 - Started making gym endpoints
+
+# Media (Screenshots/Screencasts)
+![image](https://github.com/j-koziel/titanic-fitness/assets/68497216/30934fad-080e-4e73-b960-70932ebc3da6)
+![image](https://github.com/j-koziel/titanic-fitness/assets/68497216/441a5192-b363-4ecc-93f0-f3c81c062b7b)
+![image](https://github.com/j-koziel/titanic-fitness/assets/68497216/555f5b24-6a66-4711-bb09-fc84f8586fcc)
+![image](https://github.com/j-koziel/titanic-fitness/assets/68497216/dc1d8d22-e596-48d1-aaad-9f00adf7406c)
+
+
+
+https://github.com/j-koziel/titanic-fitness/assets/68497216/b6f27633-f390-4122-938b-8d9f97d387d0
+
+
+
+
+
