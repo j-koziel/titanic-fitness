@@ -24,7 +24,7 @@
     "calorieGoal": [50, 250],
     "weightGoal": [90, 100],
     "history": [
-      { "title": "Training", "duration": "0:30", "date": "02/11/2023" }
+      { "title": "Training", "duration": 30, "date": "02/11/2023" }
     ],
     "weight": 0,
     "height": 0,

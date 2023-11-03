@@ -22,7 +22,7 @@ function Home() {
             We have 4 great facilities located across West London. Come visit us
             today!
           </p>
-          <Button text="Find A Gym" />
+          <Button text="Find A Gym" path="/locations"/>
         </div>
         <div className="information-box">
           <h2>Our Plans</h2>
