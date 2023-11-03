@@ -1,13 +1,4 @@
-# TODO
-- [ ] Add sitemap
-- [ ] Complete about page
-- [ ] Complete gym locations page
-- [ ] Complete subscriptions page
-- [ ] Create gym database
-- [ ] Create meal plans database
-- [ ] Use meal api to get meals
-- [ ] Make form fields required in history
-- [ ] fix progress form
+
  
  # titanic-fitness
 
@@ -46,6 +37,7 @@ Feature
   1. Test: The animation makes the other text move
   2. Test: Fixed the animations so that only the buttons move however the animation is still slightly delayed.
 - 23/10/2023 - Added a socials section to the home page.
+  1. Test: doesn't actually go to corresponding social pages
 
 #### Login/Registration Page
 
