@@ -79,6 +79,7 @@ Feature
   1. Test 1: The exercises come back as they are supposed to but there is a small security issue where I reveal the token in plain sight. This should be hidden from the git repository.
  ![image](https://github.com/j-koziel/titanic-fitness/assets/68497216/d8a7f24e-3e6c-4a23-9053-08e4832be6f7)
 - 02/11/2023 - Now the profile page uses the user data that is received from the backend
+- 03/11/2023 - Fixed the workouts data visuals so that the name of the workout actually shows within the container
 
 
 ## Backend (Version 2) - 1 week
