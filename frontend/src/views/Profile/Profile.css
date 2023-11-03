@@ -264,16 +264,24 @@
 .workouts {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  height: 200px;
+  width: 300px;
+  overflow: auto;
+}
+
+.workouts::-webkit-scrollbar {
+  width: 0.1px;
 }
 
 .user-workout {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 300px;
+  width: 100%;
   max-width: 300px;
   min-width: 200px;
-  height: 50px;
+  height: 60px;
   background-color: #00536f;
   margin: 7px 0px;
   border-radius: 15px;
@@ -286,6 +294,10 @@
 
 .user-workout p {
   margin: 0px 5px;
+}
+
+.user-workout-title {
+  font-weight: bold;
 }
 
 .user-workout:hover {

@@ -397,9 +397,6 @@ function Profile() {
                       onClick={() => openModal(setWorkoutModalIsOpen)}
                     >
                       <p className="user-workout-title">{workout.name}</p>
-                      <p className="user-workout-muscle-group">
-                        {workout.muscle}
-                      </p>
                       <p className="user-workout-reps">Reps: 10</p>
                     </div>
                     <Modal
