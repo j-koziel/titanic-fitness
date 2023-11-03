@@ -6,6 +6,8 @@
 - [ ] Create gym database
 - [ ] Create meal plans database
 - [ ] Use meal api to get meals
+- [ ] Make form fields required in history
+- [ ] fix progress form
  
  # titanic-fitness
 
