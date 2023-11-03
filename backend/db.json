@@ -9,6 +9,7 @@
     "age": 18,
     "userType": "free",
     "eatingPlan": [],
+    "meals": [],
     "workouts": [
       {
         "name": "Incline Hammer Curls",
@@ -43,6 +44,7 @@
     "age": 18,
     "userType": "staff",
     "eatingPlan": [],
+    "meals": [],
     "workouts": [
       {
         "name": "Incline Hammer Curls",
@@ -77,6 +79,7 @@
     "age": 18,
     "userType": "staff",
     "eatingPlan": [],
+    "meals": [],
     "workouts": [
       {
         "name": "Incline Hammer Curls",

@@ -12,6 +12,7 @@ import RingLoader from "react-spinners/RingLoader";
 import { AuthContext } from "../../components/AuthContext";
 import UpdateGoalForm from "../../forms/UpdateGoalForm/UpdateGoalForm";
 import AddHistoryForm from "../../forms/AddHistoryForm/AddHistoryForm";
+import MealInfo from "../../components/MealInfo/MealInfo";
 
 const modalStyles = {
   overlay: {
@@ -64,7 +65,6 @@ function Profile() {
   const [workoutModalIsOpen, setWorkoutModalIsOpen] = useState(false);
   const [addWorkoutModalIsOpen, setAddWorkoutModalIsOpen] = useState(false);
   const [addMealModalIsOpen, setAddMealModalIsOpen] = useState(false);
-  // const [progressModalIsOpen, setProgressModalIsOpen] = useState(false);
   const [dailyStreakGoalModalIsOpen, setDailyStreakGoalModalIsOpen] =
     useState(false);
   const [calorieGoalModalIsOpen, setCalorieGoalModalIsOpen] = useState(false);
@@ -73,6 +73,8 @@ function Profile() {
 
   const [workoutsQuery, setWorkoutsQuery] = useState("");
   const [workoutsData, setWorkoutsData] = useState([]);
+  const [recipeQuery, setRecipeQuery] = useState("");
+  const [recipeData, setRecipeData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -90,6 +92,11 @@ function Profile() {
 
   function addWorkout(workoutToAdd) {
     user["workouts"].push(workoutToAdd);
+    setUser({ ...user });
+  }
+
+  function addMeal(mealToAdd) {
+    user["meals"].push(mealToAdd);
     setUser({ ...user });
   }
 
@@ -261,6 +268,11 @@ function Profile() {
             <Modal
               isOpen={addMealModalIsOpen}
               onRequestClose={() => closeModal(setAddMealModalIsOpen)}
+              onAfterClose={() => {
+                setRecipeData([]);
+                setRecipeQuery("");
+                setError(null);
+              }}
               contentLabel="Example Modal"
               style={modalStyles}
               closeTimeoutMS={700}
@@ -268,30 +280,81 @@ function Profile() {
               <div className="add-new-meal">
                 <form
                   className="add-new-meal-form"
-                  onSubmit={(e) => e.preventDefault()}
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    setIsLoading(true);
+                    setRecipeData([]);
+                    axios
+                      .get(
+                        `https://api.api-ninjas.com/v1/recipe?query=${recipeQuery}`,
+                        {
+                          headers: {
+                            "X-Api-Key": process.env.REACT_APP_API_NINJAS_KEY,
+                          },
+                        }
+                      )
+                      .then((res) => {
+                        setRecipeData([...res.data]);
+                      })
+                      .catch((err) => {
+                        setError(err.message);
+                      })
+                      .finally(() => {
+                        setIsLoading(false);
+                      });
+                  }}
                 >
                   <input
                     type="text"
                     placeholder="Search for a meal..."
                     required
                     autoFocus
+                    onChange={(e) => {
+                      setRecipeQuery(e.target.value);
+                    }}
+                    value={recipeQuery}
                   />
                 </form>
+                {isLoading ? (
+                  <RingLoader
+                    color="#00a7e1"
+                    loading={isLoading}
+                    cssOverride={override}
+                    size={50}
+                    aria-label="Loading Spinner"
+                    data-testid="loader"
+                  />
+                ) : (
+                  <div className="recipe-data">
+                    {!isLoading && recipeData.length ? (
+                      recipeData.map((meal, i) => (
+                        <MealInfo
+                          meal={meal}
+                          i={i}
+                          closeModal={closeModal}
+                          updateFn={addMeal}
+                        />
+                      ))
+                    ) : error ? (
+                      <Error message={error.message} />
+                    ) : null}
+                  </div>
+                )}
               </div>
             </Modal>
             <h3>Daily Meals: </h3>
-            <div className="meals">
-              <div className="meal">
-                <p className="meal-time">Breakfast</p>
+            <div className="user-meals">
+              <div className="user-meal">
+                <p className="user-meal-time">Breakfast</p>
                 <p className="meal-title">Some meal</p>
               </div>
-              <div className="meal">
-                <p className="meal-time">Lunch</p>
-                <p className="meal-title">Some other meal</p>
+              <div className="user-meal">
+                <p className="user-meal-time">Lunch</p>
+                <p className="user-meal-title">Some other meal</p>
               </div>
-              <div className="meal">
-                <p className="meal-time">Dinner</p>
-                <p className="meal-title">Some final meal</p>
+              <div className="user-meal">
+                <p className="user-meal-time">Dinner</p>
+                <p className="user-meal-title">Some final meal</p>
               </div>
             </div>
           </div>

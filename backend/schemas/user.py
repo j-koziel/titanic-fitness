@@ -12,7 +12,8 @@ class User(BaseModel):
   dob: str
   age: int = 18
   userType: str = "free"
-  eatingPlan: list = []
+  eatingPlan: list = [],
+  meals: list = []
   workouts: list[dict] = []
   goals: list = [[0, 0], [0, 0], [0, 0]]
   dailyStreakGoal: list = [0, 0]

@@ -14,7 +14,7 @@ function Subscription() {
         <Button text="REGISTER NOW" />
       </div>
       <div className="subscription-option">
-        <h2>Free</h2>
+        <h2>Paid</h2>
         <ul>
           <li>Everything in free plus</li>
           <li>Access to thousands of exercises</li>

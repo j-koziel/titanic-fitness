@@ -212,12 +212,12 @@
   transform: scale(1.1);
 }
 
-.meals {
+.user-meals {
   display: flex;
   flex-direction: column;
 }
 
-.meal {
+.user-meal {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -235,11 +235,11 @@
   transform-origin: 50% 30%;
 }
 
-.meal p {
+.user-meal p {
   margin: 0px 5px;
 }
 
-.meal:hover {
+.user-meal:hover {
   transform: scale(1.03);
 }
 
@@ -329,6 +329,13 @@
   text-align: center;
 }
 
+.add-new-meal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .add-new-meal-form input {
   background-color: #00171f;
   color: #fff;
@@ -357,6 +364,16 @@
 }
 
 .workouts-data {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 70%;
+}
+
+.recipe-data {
   display: flex;
   flex-direction: row;
   align-items: center;

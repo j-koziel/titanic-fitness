@@ -1,7 +1,7 @@
 .button-component {
   border: none;
   background-color: #00a7e1;
-  width: 133px;
+  width: fit-content;
   height: 50px;
   margin-bottom: 25px;
   border-radius: 10px;
