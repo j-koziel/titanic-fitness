@@ -5,6 +5,7 @@
 - [ ] Complete subscriptions page
 - [ ] Create gym database
 - [ ] Create meal plans database
+- [ ] Use meal api to get meals
  
  # titanic-fitness
 
