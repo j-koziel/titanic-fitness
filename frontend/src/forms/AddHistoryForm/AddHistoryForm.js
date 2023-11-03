@@ -22,6 +22,7 @@ function AddHistoryForm({ updateFn }) {
         }}
         placeholder="Activity"
         autoFocus
+        required
       />
       <label htmlFor="history-duration">How long?</label>
       <input
@@ -32,6 +33,7 @@ function AddHistoryForm({ updateFn }) {
           setNewHistoryItem({ ...newHistoryItem, duration: e.target.value });
         }}
         placeholder="Duration"
+        required
       />
       <label htmlFor="history-date">When?</label>
       <input
@@ -41,6 +43,7 @@ function AddHistoryForm({ updateFn }) {
         onChange={(e) => {
           setNewHistoryItem({ ...newHistoryItem, date: e.target.value });
         }}
+        required
       />
       <button type="submit">ADD</button>
     </form>
