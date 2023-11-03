@@ -1,10 +1,10 @@
 # TODO
-- [] Add sitemap
-- [] Complete about page
-- [] Complete gym locations page
-- [] Complete subscriptions page
-- [] Create gym database
-- [] Create meal plans database
+- [ ] Add sitemap
+- [ ] Complete about page
+- [ ] Complete gym locations page
+- [ ] Complete subscriptions page
+- [ ] Create gym database
+- [ ] Create meal plans database
  
  # titanic-fitness
 
