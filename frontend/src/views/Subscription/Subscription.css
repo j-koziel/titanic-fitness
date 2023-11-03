@@ -1,0 +1,28 @@
+.subscription-page-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.subscription-option {
+  margin: 50px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #00171f;
+  height: 500px;
+  width: 500px;
+}
+
+.subscription-option h2 {
+  font-size: 30pt;
+}
+
+.subscription-option ul {
+  font-size: 20pt;
+  gap: 20px;
+}

@@ -9,6 +9,8 @@ import Profile from "./views/Profile/Profile";
 import Settings from "./views/Settings/Settings";
 import TermsAndConditions from "./views/TermsAndConditions/TermsAndConditions";
 import About from "./views/About/About";
+import GymLocations from "./views/GymLocations/GymLocations";
+import Subscription from "./views/Subscription/Subscription";
 
 function App() {
   return (
@@ -17,7 +19,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route path="terms-and-conditions" element={<TermsAndConditions />} />
+        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+        <Route path="/locations" element={<GymLocations />} />
+        <Route path="/subscription" element={<Subscription />} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
