@@ -110,7 +110,7 @@ function Profile() {
       <div className="info-history-container">
         <div className="user-info-container">
           <h2 className="welcome-message">
-            Welcome back, {user["first_name"]} 👋
+            Welcome back, {user["firstName"]} 👋
           </h2>
           <div className="profile-nav">
             <img src={Avatar} alt="You" className="profile-photo" />
@@ -118,7 +118,10 @@ function Profile() {
               buttonText="SETTINGS"
               navigateTo="/profile/settings"
             />
-            <ProfileButton buttonText="SUBSCRIPTION" navigateTo="/subscription" />
+            <ProfileButton
+              buttonText="SUBSCRIPTION"
+              navigateTo="/subscription"
+            />
             <ProfileButton buttonText="SHARE" />
           </div>
           <h2>Your Goals 📈:</h2>
@@ -252,7 +255,10 @@ function Profile() {
             style={modalStyles}
             closeTimeoutMS={700}
           >
-            <AddHistoryForm updateFn={addHistory} setHistoryModalIsOpen={setAddHistoryModalIsOpen} />
+            <AddHistoryForm
+              updateFn={addHistory}
+              setHistoryModalIsOpen={setAddHistoryModalIsOpen}
+            />
           </Modal>
         </div>
       </div>
@@ -347,8 +353,12 @@ function Profile() {
             </Modal>
             <h3>Daily Meals: </h3>
             <div className="user-meals">
-              {user["meals"].map((meal) => <div className="user-meal"><p className="user-meal-servings">{meal.servings}</p>
-                <p className="meal-title">{meal.title}</p></div>)}
+              {user["meals"].map((meal) => (
+                <div className="user-meal">
+                  <p className="user-meal-servings">{meal.servings}</p>
+                  <p className="meal-title">{meal.title}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -386,7 +396,7 @@ function Profile() {
                     axios
                       .get(
                         "https://api.api-ninjas.com/v1/exercises?name=" +
-                        workoutsQuery,
+                          workoutsQuery,
                         {
                           headers: {
                             "X-Api-Key": process.env.REACT_APP_API_NINJAS_KEY,
