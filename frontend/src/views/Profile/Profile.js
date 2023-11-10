@@ -4,7 +4,7 @@ import Avatar from "../../assets/avatar.jpg";
 import Modal from "react-modal";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import { useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import Error from "../../components/Error/Error";
 import WorkoutInfo from "../../components/WorkoutInfo/WorkoutInfo";
@@ -13,6 +13,7 @@ import { AuthContext } from "../../components/AuthContext";
 import UpdateGoalForm from "../../forms/UpdateGoalForm/UpdateGoalForm";
 import AddHistoryForm from "../../forms/AddHistoryForm/AddHistoryForm";
 import MealInfo from "../../components/MealInfo/MealInfo";
+import { useNavigate } from "react-router-dom";
 
 const modalStyles = {
   overlay: {
@@ -42,26 +43,6 @@ const modalStyles = {
 };
 
 function Profile() {
-  const progressRingStyles = {
-    trailColor: "#00536F",
-    pathColor: "#00A7E1",
-    textColor: "#FFF",
-  };
-
-  const override = {
-    display: "block",
-    margin: "0 auto",
-    borderColor: "#00a7e1",
-  };
-
-  const { user, setUser } = useContext(AuthContext);
-  const dailyStreakGoal = [
-    user["dailyStreakGoal"][0],
-    user["dailyStreakGoal"][1],
-  ];
-  const caloriesGoal = [user["calorieGoal"][0], user["calorieGoal"][1]];
-  const weightGoal = [user["weightGoal"][0], user["weightGoal"][1]];
-
   const [workoutModalIsOpen, setWorkoutModalIsOpen] = useState(false);
   const [addWorkoutModalIsOpen, setAddWorkoutModalIsOpen] = useState(false);
   const [addMealModalIsOpen, setAddMealModalIsOpen] = useState(false);
@@ -77,6 +58,38 @@ function Profile() {
   const [recipeData, setRecipeData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
+
+  const progressRingStyles = {
+    trailColor: "#00536F",
+    pathColor: "#00A7E1",
+    textColor: "#FFF",
+  };
+
+  const override = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "#00a7e1",
+  };
+
+  const { user, setUser } = useContext(AuthContext);
+
+  useEffect(() => {
+    console.log("Inside use effect");
+
+    if (!user) {
+      console.log("Redirecting to login");
+      navigate("/login");
+      // return;
+    }
+  }, [user, navigate]);
+
+  const dailyStreakGoal = [
+    user["dailyStreakGoal"][0],
+    user["dailyStreakGoal"][1],
+  ];
+  const caloriesGoal = [user["calorieGoal"][0], user["calorieGoal"][1]];
+  const weightGoal = [user["weightGoal"][0], user["weightGoal"][1]];
 
   function openModal(setModalStateFn) {
     setModalStateFn(true);
@@ -112,6 +125,15 @@ function Profile() {
           <h2 className="welcome-message">
             Welcome back, {user["firstName"]} 👋
           </h2>
+          <button
+            onClick={() => {
+              localStorage.removeItem("user");
+              setUser(null);
+              navigate("/home");
+            }}
+          >
+            Log out
+          </button>
           <div className="profile-nav">
             <img src={Avatar} alt="You" className="profile-photo" />
             <ProfileButton

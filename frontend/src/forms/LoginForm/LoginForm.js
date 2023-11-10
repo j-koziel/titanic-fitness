@@ -19,7 +19,7 @@ function LoginForm({ formChange }) {
     const postData = { username, password };
 
     axios
-      .post("http://10.50.40.206:8000/api/v1/users/auth", postData)
+      .post("http://localhost:8000/api/v1/users/auth", postData)
       .then((res) => {
         setUser(res.data);
         localStorage.setItem("user", JSON.stringify(res.data));
