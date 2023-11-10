@@ -22,7 +22,7 @@ async def register_new_user(new_user: NewUser):
     
   db.append(User(**user_to_append))
   save_db(db, r"C:/Users/40184214/titanic-fitness/backend/db.json")
-  return new_user
+  return db[-1]
   
 @router.post("/auth")
 async def login_user(cand_user: CandUser):

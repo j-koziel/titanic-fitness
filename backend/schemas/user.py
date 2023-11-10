@@ -1,5 +1,4 @@
 from pydantic import BaseModel
-from datetime import datetime
 from schemas.gym import Gym
 
 
@@ -22,7 +21,7 @@ class User(BaseModel):
   history: list[dict] = []
   weight: float = 0
   height: float = 0
-  preferredGym: Gym = {}
+  preferredGym: Gym = Gym()
 
 class CandUser(BaseModel):
   username: str
