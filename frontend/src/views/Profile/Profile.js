@@ -80,7 +80,6 @@ function Profile() {
     if (!user) {
       console.log("Redirecting to login");
       navigate("/login");
-      // return;
     }
   }, [user, navigate]);
 
@@ -122,6 +121,7 @@ function Profile() {
     <div className="profile-page-container">
       <div className="info-history-container">
         <div className="user-info-container">
+          <div className="welcome-message-container">
           <h2 className="welcome-message">
             Welcome back, {user["firstName"]} 👋
           </h2>
@@ -131,9 +131,22 @@ function Profile() {
               setUser(null);
               navigate("/home");
             }}
+            style={
+              {
+                outline: "none",
+                border: "none",
+                backgroundColor: "#00a7e1",
+                padding: "10px",
+                fontWeight: "bold",
+                borderRadius: "10px",
+                height: "70%",
+                cursor: "pointer",
+              }
+            }
           >
             Log out
           </button>
+          </div>
           <div className="profile-nav">
             <img src={Avatar} alt="You" className="profile-photo" />
             <ProfileButton

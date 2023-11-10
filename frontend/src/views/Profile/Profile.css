@@ -21,6 +21,13 @@
   text-align: left;
 }
 
+.welcome-message-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
 .user-info-container h2 {
   margin-left: 18px;
   color: #fff;

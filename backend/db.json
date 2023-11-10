@@ -287,6 +287,55 @@
             0
         ],
         "history": [],
+        "weight": 0.0,
+        "height": 0.0,
+        "preferredGym": {
+            "staff": [],
+            "location": "",
+            "users": []
+        }
+    },
+    {
+        "firstName": "David",
+        "lastName": "Smith",
+        "email": "atest@gmail.com",
+        "username": "hello",
+        "password": "testpass123",
+        "dob": "2023-11-03",
+        "age": 18,
+        "userType": "free",
+        "eatingPlan": [
+            []
+        ],
+        "meals": [],
+        "workouts": [],
+        "goals": [
+            [
+                0,
+                0
+            ],
+            [
+                0,
+                0
+            ],
+            [
+                0,
+                0
+            ]
+        ],
+        "dailyStreakGoal": [
+            0,
+            0
+        ],
+        "calorieGoal": [
+            0,
+            0
+        ],
+        "weightGoal": [
+            0,
+            0
+        ],
+        "history": [],
         "weight": 0,
         "height": 0,
         "preferredGym": {
