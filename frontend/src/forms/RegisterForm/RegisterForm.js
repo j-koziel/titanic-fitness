@@ -17,7 +17,7 @@ function RegisterForm({ formChange }) {
     const postData = newUser;
 
     axios
-      .post("http://localhost:8000/api/v1/users", postData)
+      .post("http://10.50.40.206:8000/api/v1/users", postData)
       .then((res) => {
         setUser(res.data);
         localStorage.setItem("user", JSON.stringify(res.data));
@@ -58,7 +58,7 @@ function RegisterForm({ formChange }) {
             id="first-name-input"
             required
             onChange={(e) => {
-              setNewUser({ ...newUser, first_name: e.target.value });
+              setNewUser({ ...newUser, firstName: e.target.value });
             }}
           />
         </div>
@@ -70,7 +70,7 @@ function RegisterForm({ formChange }) {
             id="surname-input"
             required
             onChange={(e) => {
-              setNewUser({ ...newUser, last_name: e.target.value });
+              setNewUser({ ...newUser, lastName: e.target.value });
             }}
           />
         </div>
