@@ -1,13 +1,15 @@
 import "./Login.css";
 import LoginForm from "../../forms/LoginForm/LoginForm";
 import RegisterForm from "../../forms/RegisterForm/RegisterForm";
-import { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../../components/AuthContext";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 function Login() {
   const [formState, setFormState] = useState("login");
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log(setSearchParams);
+  const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     const paramFormState = searchParams.get("formState");
@@ -18,7 +20,11 @@ function Login() {
     }
 
     window.scrollTo(0, 0);
-  }, [searchParams, formState]);
+
+    if (user) {
+      navigate("/profile");
+    }
+  }, [searchParams, formState, navigate, user]);
 
   function changeForm() {
     const paramFormState = searchParams.get("formState");
